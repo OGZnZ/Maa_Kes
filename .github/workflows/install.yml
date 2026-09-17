@@ -461,7 +461,7 @@ jobs:
           os: android
 
           owner: miaojiuqing
-          repo: Maa_KES
+          repo: Maa_Kes
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # 注意：与桌面端 mirrorchyan_release.yml 用的 MirrorChyanUploadToken 是另一个
           # secret，需要单独去 MirrorChyan 后台拿 android rid 的上传 token
