@@ -1,0 +1,32 @@
+# MaaFwApp 的 Project Interface 打包配方。
+# 所有相对路径均以本文件所在目录（.github/android）为基准。
+#
+# assets 指向 CI 里组装好的扁平 PI 目录（interface.json 与 resource/ 同级），
+# 由 .github/workflows/install.yml 的 "Prepare Project Interface assets" 步骤生成。
+#
+# 最终 applicationId = MaaFwApp 的 BASE_APPLICATION_ID（由 patch_maafwapp.py 改成
+# com.maafw.mq）+ 下面的 app.id，即 com.maafw.mq.vero。
+# app.id 只收小写包段：必须匹配 [a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)*，大写、连字符都会被
+# MaaFwApp 直接拒绝（app.id must be lowercase package segments）。
+assets: ../../build-android/pi-assets
+
+include:
+  - interface.json
+  - tasks/**
+  - resource/**
+  - resource_TC/**
+  - LICENSE
+
+# Android 只取 interface.json 里 type: Adb 的控制器，桌面端专用的东西在这里挖掉。
+# 注意：assets/interface.json 里的 agent 段是注释掉的状态（PI 未声明 agent），
+# 所以这里不带 agent/**，配方里也没有 agent: 段。哪天 PI 真的声明了 agent，
+# 需要同时补上 agent/** 到 include、配方的 agent: 段，以及一个 requirements.txt。
+exclude:
+  - "**/__pycache__/**"
+  - "**/.gitignore"
+
+app:
+  id: vero
+  label: Maa_KES
+  # 只收 png / webp，且必须真实存在；1080x1080 的 PNG。
+  icon: ../../assets/resource/image/logo.png

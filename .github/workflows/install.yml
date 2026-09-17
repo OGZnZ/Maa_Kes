@@ -6,6 +6,10 @@ env:
   # - 设置 VERSION 为具体版本号时（如 v1.2.3），下载指定版本
   MAAFW_VERSION: ""
   MFAA_VERSION: ""
+  # Android 包在 MirrorChyan 后台的 rid（桌面端仍是 interface.json 里的 MaaKes，不动）。
+  # 这个值会在打包时写进 APK 内的 interface.json，客户端更新检查读的就是它；
+  # 全流程只有这一处定义，改这里就够。
+  ANDROID_MIRRORCHYAN_RID: "Maa_Kes_exec"
 
 on:
   push:
@@ -15,6 +19,8 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
+      - ".github/android/**"
+      - "tools/ci/**"
       - "assets/**"
       - "**.py"
   pull_request:
@@ -22,6 +28,8 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
+      - ".github/android/**"
+      - "tools/ci/**"
       - "assets/**"
       - "**.py"
   workflow_dispatch:
@@ -143,6 +151,178 @@ jobs:
           name: MaaKes-${{ matrix.os }}-${{ matrix.arch }}
           path: "install"
 
+  android:
+    name: Build Android APK
+    needs: [meta]
+    runs-on: ubuntu-latest
+    outputs:
+      variant: ${{ steps.signing.outputs.variant }}
+    env:
+      # 固定 MaaFwApp 的提交：Android 壳由上游维护，不固定的话上游哪天改了配方字段就会炸发版
+      MAAFWAPP_REF: f20ff4ba0b53e83132da1015c7635ef16e8b5736
+      MAAFRAMEWORK_TAG: v5.12.3
+      # MaaFwApp 从 PI_PROFILE 环境变量（或 local.properties 的 pi.profile）找打包配方
+      PI_PROFILE: ${{ github.workspace }}/.github/android/pi-profile.yaml
+      ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+    steps:
+      - name: Checkout Maa_KES
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Checkout MaaFwApp
+        uses: actions/checkout@v4
+        with:
+          repository: Aliothmoon/MaaFwApp
+          ref: ${{ env.MAAFWAPP_REF }}
+          path: build-android/MaaFwApp
+          fetch-depth: 1
+
+      - name: Use Maa_KES version for the APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          # MaaFwApp 会从当前 Git 仓库生成 versionCode/versionName。移除嵌套 checkout
+          # 的 Git 元数据后，它会向上使用 Maa_KES 的提交数与标签。
+          rm -rf build-android/MaaFwApp/.git
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Configure Android package name
+        shell: bash
+        # 把 MaaFwApp 的 BASE_APPLICATION_ID 换成 com.maafw.mq；
+        # 后缀 vero 在 .github/android/pi-profile.yaml 里，最终 com.maafw.mq.vero
+        run: python .github/android/patch_maafwapp.py build-android/MaaFwApp
+
+      - name: Prepare Project Interface assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -r tools/requirements.txt
+
+          # assets/resource/model/ocr 没进 git（见 assets/resource/model/.gitignore），
+          # 必须先从 MaaCommonAssets 子模块铺一份，否则 APK 里没有 OCR 模型
+          python ./tools/configure.py
+
+          python ./tools/ci/stage_pi_assets.py \
+            --tag "${{ needs.meta.outputs.tag }}" \
+            --rid "$ANDROID_MIRRORCHYAN_RID"
+
+          # 在打包前算 resource.hash。这里不额外做容错：本项目没有 Docker 那条并行的
+          # 打包路径，算不出来就让这一步失败更显眼，省得发一个带错 hash 的包出去
+          python ./tools/ci/gen_resource_hash.py \
+            "$GITHUB_WORKSPACE/build-android/pi-assets/interface.json" \
+            --root "$GITHUB_WORKSPACE/build-android/pi-assets"
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - name: Cache Android runtimes
+        uses: actions/cache@v4
+        with:
+          path: |
+            build-android/MaaFwApp/.maa-cache
+            build-android/MaaFwApp/.maafw
+          key: android-runtime-${{ runner.os }}-${{ env.MAAFRAMEWORK_TAG }}-${{ env.MAAFWAPP_REF }}
+
+      - name: Prepare MaaFramework
+        working-directory: build-android/MaaFwApp
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/setup_maa_framework.py --tag "$MAAFRAMEWORK_TAG"
+
+      - name: Configure Android signing
+        id: signing
+        shell: bash
+        run: |
+          set -euo pipefail
+          values=(
+            "$ANDROID_KEYSTORE_BASE64"
+            "$ANDROID_KEYSTORE_PASSWORD"
+            "$ANDROID_KEY_ALIAS"
+            "$ANDROID_KEY_PASSWORD"
+          )
+          configured=0
+          for value in "${values[@]}"; do
+            [[ -n "$value" ]] && configured=$((configured + 1))
+          done
+
+          if [[ "$configured" -eq 0 ]]; then
+            echo "No release keystore configured; building a debug-signed APK."
+            echo "gradle_task=assembleDebug" >> "$GITHUB_OUTPUT"
+            echo "variant=debug" >> "$GITHUB_OUTPUT"
+            echo "suffix=-debug" >> "$GITHUB_OUTPUT"
+          elif [[ "$configured" -ne 4 ]]; then
+            echo "Android signing secrets are only partially configured." >&2
+            echo "Set ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS and ANDROID_KEY_PASSWORD together." >&2
+            exit 1
+          else
+            keystore="$RUNNER_TEMP/android-release.jks"
+            printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$keystore"
+            test -s "$keystore"
+
+            # 解码后立刻验一次：keystore 读不出来时，失败会晚到 :app:packageRelease 才爆，
+            # 那里只抛 KeytoolException + EOFException，分不清是 base64 截断、二次编码还是密码/别名不对。
+            # secret 的值读不回来，所以只打长度和 sha256：和本地 Get-FileHash 对不上就是抄写错了。
+            echo "keystore: $(stat -c%s "$keystore") bytes | base64: ${#ANDROID_KEYSTORE_BASE64} chars | sha256: $(sha256sum "$keystore" | cut -d' ' -f1)"
+            echo "store password: ${#ANDROID_KEYSTORE_PASSWORD} chars | key password: ${#ANDROID_KEY_PASSWORD} chars | same: $([[ "$ANDROID_KEY_PASSWORD" == "$ANDROID_KEYSTORE_PASSWORD" ]] && echo yes || echo no)"
+
+            if ! keytool -list -keystore "$keystore" -storepass "$ANDROID_KEYSTORE_PASSWORD" >/dev/null 2>&1; then
+              echo "❌ 密钥库打不开：ANDROID_KEYSTORE_PASSWORD 与 keystore 不匹配（长度见上一行）" >&2
+              exit 1
+            fi
+
+            aliases="$(keytool -list -keystore "$keystore" -storepass "$ANDROID_KEYSTORE_PASSWORD" 2>/dev/null | awk -F',' '/PrivateKeyEntry/ {print $1}' | tr '\n' ' ')"
+            if ! keytool -list -keystore "$keystore" -storepass "$ANDROID_KEYSTORE_PASSWORD" -alias "$ANDROID_KEY_ALIAS" >/dev/null 2>&1; then
+              echo "❌ 密钥库能打开，但没有 ANDROID_KEY_ALIAS 指定的那个别名；keystore 里实际是：${aliases:-<无>}" >&2
+              exit 1
+            fi
+            echo "keystore aliases: ${aliases:-<无>}"
+
+            echo "KEYSTORE_PATH=$keystore" >> "$GITHUB_ENV"
+            echo "KEYSTORE_PASSWORD=$ANDROID_KEYSTORE_PASSWORD" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=$ANDROID_KEY_ALIAS" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=$ANDROID_KEY_PASSWORD" >> "$GITHUB_ENV"
+            echo "gradle_task=assembleRelease" >> "$GITHUB_OUTPUT"
+            echo "variant=release" >> "$GITHUB_OUTPUT"
+            echo "suffix=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build APK
+        working-directory: build-android/MaaFwApp
+        shell: bash
+        run: |
+          set -euo pipefail
+          chmod +x ./gradlew
+          ./gradlew ":app:${{ steps.signing.outputs.gradle_task }}" --stacktrace
+
+          variant="${{ steps.signing.outputs.variant }}"
+          apk="$(find "app/build/outputs/apk/$variant" -maxdepth 1 -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          mkdir -p "$GITHUB_WORKSPACE/android-dist"
+          cp "$apk" "$GITHUB_WORKSPACE/android-dist/MaaKes-android-${{ needs.meta.outputs.tag }}${{ steps.signing.outputs.suffix }}.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          # 故意不叫 MaaKes-android-*：install job 的矩阵已经有 MaaKes-android-{aarch64,x86_64}
+          # 那两个是给 MaaFwApp 用的 PI 资源包，别和 APK 混在一起
+          name: MaaKes-android-apk
+          path: android-dist/*.apk
+          if-no-files-found: error
+
   changelog:
     name: Generate changelog
     needs: meta
@@ -171,7 +351,7 @@ jobs:
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, install, changelog]
+    needs: [meta, install, android, changelog]
     runs-on: ubuntu-latest
     steps:
       # 取出 aur/ 模板用于生成 AUR 包
@@ -184,11 +364,28 @@ jobs:
         with:
           path: assets
 
-      # 只压缩构建产物目录，跳过 MaaCommonAssets 等无关文件
+      # 只压缩构建产物目录，跳过 MaaCommonAssets 等无关文件；
+      # APK 不压缩，直接挪到 assets/ 根，Release 里给用户一个能点就装的 .apk
       - run: |
+          set -euo pipefail
           cd assets
-          for f in MaaKes-*; do
-            [ -d "$f" ] && (cd "$f" && zip -r "../$f-${{ needs.meta.outputs.tag }}.zip" .)
+          tag="${{ needs.meta.outputs.tag }}"
+          for f in *; do
+            [ -d "$f" ] || continue
+            if [ "$f" = "MaaKes-android-apk" ]; then
+              found=0
+              for apk in "$f"/*.apk; do
+                [ -f "$apk" ] || continue
+                mv "$apk" .
+                found=1
+              done
+              if [ "$found" -eq 0 ]; then
+                echo "❌ $f 里没有 APK"; ls -la "$f"; exit 1
+              fi
+              rmdir "$f" 2>/dev/null || true
+            else
+              (cd "$f" && zip -r "../$f-${tag}.zip" .)
+            fi
           done
       # 只压缩构建产物目录如上
 
@@ -231,3 +428,41 @@ jobs:
           gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note.yml -f tag=${{ needs.meta.outputs.tag }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  android_mirrorchyan:
+    name: Upload Android APK to MirrorChyan
+    # 只在正式发版、并且 APK 确实是 release 签名时上传：
+    # debug 包传上去用户下到的是装不上的东西（签名和现在的正式包冲突）
+    if: ${{ needs.meta.outputs.is_release == 'true' && needs.android.outputs.variant == 'release' && github.repository_owner == 'miaojiuqing' }}
+    needs: [meta, android, release]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: MaaKes-android-apk
+          path: android-dist
+
+      - name: Locate Android APK
+        id: apk
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk="$(find android-dist -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          echo "path=$apk" >> "$GITHUB_OUTPUT"
+
+      - name: Upload Android APK
+        uses: MirrorChyan/uploading-action@v1
+        with:
+          filetype: local
+          filename: ${{ steps.apk.outputs.path }}
+          mirrorchyan_rid: ${{ env.ANDROID_MIRRORCHYAN_RID }}
+          version_name: ${{ needs.meta.outputs.tag }}
+          os: android
+
+          owner: miaojiuqing
+          repo: Maa_KES
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 注意：与桌面端 mirrorchyan_release.yml 用的 MirrorChyanUploadToken 是另一个
+          # secret，需要单独去 MirrorChyan 后台拿 android rid 的上传 token
+          upload_token: ${{ secrets.ANDROID_MIRRORCHYANUPLOADTOKEN }}

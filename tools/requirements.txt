@@ -1,1 +1,4 @@
 json-with-comments
+# tools/ci/gen_resource_hash.py 用 maa.resource 算 interface.resource 的 hash。
+# 装不上时 install.py 会自动跳过 hash 步骤（见其结尾的 try/except），不会让打包整体失败。
+MaaFw

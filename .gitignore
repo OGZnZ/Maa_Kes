@@ -450,5 +450,13 @@ install
 # Tools
 tools/ImageCropper/**/*.png
 
+# Android 签名材料：绝对不要进仓库（丢了可以重新生成，泄漏了别的仓库拿不走你的包名）
+*.jks
+*.jks.b64
+*.keystore
+
+# Android 打包的中间产物
+build-android
+
 config
 debug

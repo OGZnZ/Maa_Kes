@@ -157,4 +157,24 @@ if __name__ == "__main__":
     install_chores()
     install_agent()
 
+    # 在当前构建平台上生成 resource.hash（跨平台字节/换行差异会导致结果不一致）。
+    # hash 是 interface.json 的可选字段，不是打包的必需品：算不出来（例如容器里没有 maa
+    # 或它的 native 依赖）就警告跳过，不该让整个打包失败。
+    # Windows CI 默认控制台常为 cp1252，必须先把 stdout 切成 UTF-8，否则下面任何一行中文
+    # 都会抛 UnicodeEncodeError，把"优雅降级"变成崩溃 —— 所以 reconfigure 在任何 print 之前。
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "ci"))
+        from gen_resource_hash import apply_resource_hashes
+
+        comment = apply_resource_hashes(install_path / "interface.json", root=install_path)
+    except Exception as error:
+        print(f"⚠️ 跳过 resource.hash 生成（{type(error).__name__}: {error}）；本产物不带 hash 校验")
+    else:
+        print(comment)
+
     print(f"Install to {install_path} successfully.")
