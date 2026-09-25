@@ -213,8 +213,8 @@
         "next": [
             "出击-选角-已选中-希安联邦",
             "[JumpBack]出击-选角-点击选择-希安联邦"
-            // "出击-选角-筛选完毕-已回到角色选择界面",
-            // "[JumpBack]出击-选角色-筛选完毕-点击启用筛选"
+            // "Sortie - Select Character - Filter Done - Returned to Character Select",
+            // "[JumpBack] Sortie - Select Character - Filter Done - Click Enable Filter"
         ]
     },
     "出击-选角-点击选择-操控师": {

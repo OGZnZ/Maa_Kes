@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "自动战斗中,等待战斗结束"
+            "Node.Recognition.Succeeded": "Auto-battling, waiting for the battle to end"
         },
         "next": [
             "卡厄思-通用-卡牌闪光触发-选完了",

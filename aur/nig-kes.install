@@ -1,0 +1,31 @@
+# Version number substituted by CI
+post_install() {
+    echo "================================================"
+    echo "  NIG-Kes v@VERSION@ installed"
+    echo ""
+    echo "  Launch: nig-kes"
+    echo "  First launch creates runtime directory in ~/.local/share/nig-kes/"
+    echo ""
+    echo "  Requires dotnet-runtime >= 10.0"
+    echo "  Linux desktop uses WlRoots controller"
+    echo "  ADB connects to Android emulator or device"
+    echo "  Game resolution must be 16:9"
+    echo ""
+    echo "  Author: miaojiuqing"
+    echo "  https://github.com/miaojiuqing/Maa_KES"
+    echo "  Framework: MaaFramework"
+    echo "================================================"
+}
+
+post_upgrade() {
+    post_install
+}
+
+pre_remove() {
+    true
+}
+
+post_remove() {
+    true
+}
+# End of version substitution section

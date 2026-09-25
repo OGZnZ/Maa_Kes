@@ -78,7 +78,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已进入战斗训练界面"
+            "Node.Recognition.Succeeded": "Entered the combat training screen"
         },
         "next": [
             "清体力-刷取类型接口"
@@ -86,7 +86,7 @@
     },
     "清体力-刷取类型接口": {
         "focus": {
-            "Node.Recognition.Succeeded": "将根据选项分类"
+            "Node.Recognition.Succeeded": "Will branch by selected option"
         },
         "next": [
             "清体力-记忆碎片-任务开始层"

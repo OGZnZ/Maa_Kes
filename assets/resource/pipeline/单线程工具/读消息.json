@@ -36,7 +36,7 @@
             "工具-读消息-已进入消息界面",
             "[JumpBack]工具-读消息-点击进入消息界面",
             "[JumpBack]进游戏-息屏点击"
-            // "[JumpBack]工具-读消息-正在进入消息界面"
+            // "[JumpBack] Tool - Read Messages - Entering Messages Screen"
         ]
     },
     "工具-读消息-点击进入消息界面": {
@@ -96,7 +96,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未发现任何可读消息"
+            "Node.Recognition.Succeeded": "No readable messages found"
         },
         "action": {
             "type": "Click",
@@ -141,7 +141,7 @@
             }
         }
     },
-    //好友列表
+    // Friend list
     "工具-读消息-发现好友列表有未读消息": {
         "recognition": {
             "type": "TemplateMatch",
@@ -266,7 +266,7 @@
             "工具-读消息-已进入消息界面"
         ]
     },
-    //消息列表
+    // Message list
     "工具-读消息-消息列表中有未读消息": {
         "recognition": {
             "type": "TemplateMatch",
@@ -339,7 +339,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "消息列表没有未读的消息了"
+            "Node.Recognition.Succeeded": "No unread messages left in the message list"
         },
         "action": {
             "type": "Click",
@@ -376,7 +376,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "消息列表没有未读的消息了"
+            "Node.Recognition.Succeeded": "No unread messages left in the message list"
         },
         "action": {
             "type": "Click",
@@ -410,7 +410,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "将尝试过超特殊剧情,大概会超时"
+            "Node.Recognition.Succeeded": "Will attempt the extra-special story; it will probably time out"
         },
         "action": {
             "type": "Click",
@@ -454,7 +454,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "将尝试过超特殊剧情,大概会超时"
+            "Node.Recognition.Succeeded": "Will attempt the extra-special story; it will probably time out"
         },
         "action": {
             "type": "Click",
@@ -666,7 +666,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "解锁了一段特殊剧情❤️"
+            "Node.Recognition.Succeeded": "Unlocked a special story❤️"
         },
         "action": {
             "type": "Click"

@@ -2,12 +2,13 @@
     "task": [
         {
             "name": "教学处自动清理红点",
+            "label": "Clear Academy Red Dots",
             "default_check": false,
             "group": [
                 "工具"
             ],
             "entry": "工具-教学红点清除-已处于教学界面",
-            "description": "请自行打开教学界面后运行此任务"
+            "description": "Open the tutorial screen yourself before running this task"
         }
     ]
 }

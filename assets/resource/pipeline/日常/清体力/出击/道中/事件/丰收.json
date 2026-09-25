@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "获得了什么呢"
+            "Node.Recognition.Succeeded": "What did we get?"
         },
         "next": [
             "出击-道中-装备获取界面",
@@ -55,7 +55,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "是装备！"
+            "Node.Recognition.Succeeded": "It's equipment!"
         },
         "next": [
             "出击-道中-装备获取-有推荐",
@@ -95,7 +95,7 @@
             "[JumpBack]出击-通用-继续"
         ]
     },
-    "出击-道中-装备获取-无推荐": { //检查武器类型
+    "出击-道中-装备获取-无推荐": { // Check weapon type
         "inverse": true,
         "recognition": {
             "type": "TemplateMatch",
@@ -178,7 +178,7 @@
             "出击-道中-装备获取-装备类型为武器"
         ]
     },
-    "出击-道中-装备获取-装备类型为武器": { //缺饰品和防具的
+    "出击-道中-装备获取-装备类型为武器": { // Trinket and armor cases not handled yet
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -195,7 +195,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前可获取的装备类型为-武器"
+            "Node.Recognition.Succeeded": "Currently acquirable equipment type: weapon"
         },
         "action": {
             "type": "Click",
@@ -220,7 +220,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "确认装备"
+            "Node.Recognition.Succeeded": "Confirm equipment"
         },
         "action": "Click",
         "next": [
@@ -246,7 +246,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "确认装备"
+            "Node.Recognition.Succeeded": "Confirm equipment"
         },
         "action": "Click",
         "next": [

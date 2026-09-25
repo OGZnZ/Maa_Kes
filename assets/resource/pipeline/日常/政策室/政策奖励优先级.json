@@ -1,5 +1,5 @@
 {
-    "日常-政策-扫描政策奖励_优先级_区": { //政策点
+    "日常-政策-扫描政策奖励_优先级_区": { // policy points
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "没有发现想要的,将默认右边的政策点"
+            "Node.Recognition.Succeeded": "Desired reward not found, defaulting to the policy points on the right"
         },
         "next": [
             "[JumpBack]日常-政策-战斗任务解锁确认",
@@ -69,7 +69,7 @@
             "日常-政策-开始审批"
         ]
     },
-    "日常-政策-扫描政策奖励_优先级1": { //默认水晶
+    "日常-政策-扫描政策奖励_优先级1": { // default: crystals
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -85,7 +85,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "太好啦是水晶"
+            "Node.Recognition.Succeeded": "Great, it's crystals"
         },
         "next": [
             "[JumpBack]日常-政策-战斗任务解锁确认",
@@ -137,7 +137,7 @@
             "日常-政策-开始审批"
         ]
     },
-    "日常-政策-扫描政策奖励_优先级2": { //默认战斗关
+    "日常-政策-扫描政策奖励_优先级2": { // default: combat stage
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -153,7 +153,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "将解锁新的战斗任务,请及时处理"
+            "Node.Recognition.Succeeded": "A new combat mission will be unlocked, please handle it promptly"
         },
         "next": [
             "[JumpBack]日常-政策-战斗任务解锁确认",
@@ -204,7 +204,7 @@
             "日常-政策-开始审批"
         ]
     },
-    "日常-政策-扫描政策奖励_优先级3": { //默认礼物
+    "日常-政策-扫描政策奖励_优先级3": { // default: gifts
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -230,7 +230,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "获得了新的好感度礼物🎁"
+            "Node.Recognition.Succeeded": "Obtained a new affinity gift🎁"
         },
         "next": [
             "[JumpBack]日常-政策-战斗任务解锁确认",
@@ -282,7 +282,7 @@
             "日常-政策-开始审批"
         ]
     },
-    "日常-政策-扫描政策奖励_优先级4": { //默认寰宇通用材料
+    "日常-政策-扫描政策奖励_优先级4": { // default: Huanyu general materials
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -298,7 +298,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "获得了寰宇战术认证书"
+            "Node.Recognition.Succeeded": "Obtained a Huanyu Tactics Certificate"
         },
         "next": [
             "[JumpBack]日常-政策-战斗任务解锁确认",

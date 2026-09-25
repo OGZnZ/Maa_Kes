@@ -87,7 +87,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战斗处的红点清理完毕！"
+            "Node.Recognition.Succeeded": "Red dots in the Battle section cleared!"
         },
         "action": {
             "type": "Click",
@@ -172,7 +172,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "进行游戏处的红点清理完毕！"
+            "Node.Recognition.Succeeded": "Red dots in the Play section cleared!"
         },
         "action": {
             "type": "Click",
@@ -232,7 +232,7 @@
             "工具-教学红点清除-已处于教学界面"
         ]
     },
-    "工具-教学红点清除-游戏数据-无红点": { //清理完毕
+    "工具-教学红点清除-游戏数据-无红点": { // Cleanup done
         "inverse": true,
         "recognition": {
             "type": "ColorMatch",
@@ -257,7 +257,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "游戏数据处的红点清理完毕！"
+            "Node.Recognition.Succeeded": "Red dots in the Game Data section cleared!"
         },
         "next": [
             "工具-教学红点清除-清理完毕"
@@ -288,7 +288,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "所有红点清理完毕！"
+            "Node.Recognition.Succeeded": "All red dots cleared!"
         }
     }
 }

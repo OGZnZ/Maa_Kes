@@ -2,13 +2,13 @@
     "task": [
         {
             "name": "日常-喝咖啡",
-            "label": "☕️喝咖啡",
+            "label": "☕️Coffee Break",
             "default_check": true,
             "group": [
                 "日常"
             ],
             "entry": "日常-喝咖啡-任务开始层",
-            "description": "谁会拒绝一杯☕️呢"
+            "description": "Who could refuse a cup of ☕️?"
         }
     ]
 }

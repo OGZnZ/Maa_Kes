@@ -281,7 +281,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "☕️喝完啦~"
+            "Node.Recognition.Succeeded": "☕️Finished drinking coffee~"
         },
         "next": [
             "已进入首页",

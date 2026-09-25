@@ -158,7 +158,7 @@
             "出击-道中-卡牌获取-未选中卡牌"
         ]
     }
-    // "出击-卡牌获取-选择技能类卡牌": {
+    // "Sortie - Card Acquisition - Select Skill Cards": {
     //     "recognition": {
     //         "type": "TemplateMatch",
     //         "param": {
@@ -169,14 +169,14 @@
     //                 112
     //             ],
     //             "template": [
-    //                 "日常/出击/选角色/道中/卡牌获得/卡牌选取-技能类.png"
+    //                 "daily/sortie/select_char/path/card_get/card_select_skill.png"
     //             ]
     //         }
     //     },
     //     "next": [
-    //         "出击-道中-卡牌获取-已选中卡牌",
-    //         "出击-卡牌获取-选择技能类卡牌",
-    //         "出击-道中-卡牌获取-未选中卡牌"
+    //         "Sortie - Path - Card Acquisition - Card Selected",
+    //         "Sortie - Card Acquisition - Select Skill Cards",
+    //         "Sortie - Path - Card Acquisition - No Card Selected"
     //     ]
     // }
 }

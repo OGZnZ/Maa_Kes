@@ -1,13 +1,13 @@
-"""把 assets/ 组装成 MaaFwApp 打包配方要的扁平 PI 目录。
+"""Assemble assets/ into the flat PI directory required by MaaFwApp build recipes.
 
-MaaFwApp 的 pi-profile.yaml 指向这个目录：interface.json 与 resource/ 同级。
-CI 与本地都能跑，幂等（每次都整体重建）。
+MaaFwApp's pi-profile.yaml points to this directory: interface.json is sibling to resource/.
+Runs both in CI and locally, idempotent (rebuilt cleanly each time).
 
-用法:
+Usage:
     python tools/ci/stage_pi_assets.py --tag v1.2.3 --rid MaaKes_android
 
-注意 --rid 只影响这个暂存目录（也就是进 APK 的那份 interface.json），
-仓库里的 assets/interface.json 不会被改，桌面端的 rid 始终是 MaaKes。
+Note: --rid only affects this staging directory (the interface.json included in the APK),
+assets/interface.json in the repository is not modified; desktop rid remains MaaKes.
 """
 
 from __future__ import annotations
@@ -22,9 +22,9 @@ import jsonc
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = REPO_ROOT / "build-android" / "pi-assets"
 
-# 要拷进 PI 目录的顶层条目，与 .github/android/pi-profile.yaml 的 include 对齐。
-# agent/ 故意不在里面：assets/interface.json 的 agent 段是注释状态（PI 未声明 agent），
-# 带了也没人拉起。哪天 PI 真的声明了 agent，这里、include 和配方都要一起补。
+# Top-level entries to copy into the PI directory, aligned with .github/android/pi-profile.yaml include list.
+# agent/ is intentionally omitted: assets/interface.json agent section is commented out (PI does not declare an agent).
+# If an agent is declared in the future, include list and recipes must be updated together.
 ENTRIES = ("resource", "resource_TC", "tasks")
 
 
@@ -34,7 +34,7 @@ def stage(out_dir: Path, *, tag: str | None = None, rid: str | None = None) -> P
         raise SystemExit(f"assets/interface.json not found under {REPO_ROOT}")
 
     out_dir = out_dir.resolve()
-    # 防手滑：绝不允许把仓库根或 assets/ 当成输出目录清掉
+    # Safety check: never allow clearing repo root or assets/ as staging output directory
     for protected in (REPO_ROOT.resolve(), assets.resolve()):
         if out_dir == protected:
             raise SystemExit(f"refusing to use {out_dir} as the staging directory")
@@ -55,8 +55,8 @@ def stage(out_dir: Path, *, tag: str | None = None, rid: str | None = None) -> P
     if tag:
         interface["version"] = tag
     if rid:
-        # APK 上传到 MirrorChyan 的独立 rid；而 app 的更新检查读的是 PI 里的 rid，
-        # 不改的话它会去查桌面那个 rid，拿不到 android 资源（会回退 GitHub 源）。
+        # APK upload uses a separate rid on MirrorChyan; the app update check reads rid from PI,
+        # otherwise it would query desktop rid and fail to get Android assets (falling back to GitHub).
         interface["mirrorchyan_rid"] = rid
 
     with open(interface_path, "w", encoding="utf-8") as handle:
@@ -68,12 +68,12 @@ def stage(out_dir: Path, *, tag: str | None = None, rid: str | None = None) -> P
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="输出目录")
-    parser.add_argument("--tag", default=None, help="写进 interface.version 的版本号")
+    parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="Output directory")
+    parser.add_argument("--tag", default=None, help="Version string to write to interface.version")
     parser.add_argument(
         "--rid",
         default=None,
-        help="写进 interface.mirrorchyan_rid 的 Android rid；留空则保持原值",
+        help="Android rid to write to interface.mirrorchyan_rid; leave empty to keep original",
     )
     args = parser.parse_args()
 

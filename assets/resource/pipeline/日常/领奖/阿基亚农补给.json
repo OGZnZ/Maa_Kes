@@ -202,7 +202,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "🎁阿基亚农可领取补给已领取完毕~"
+            "Node.Recognition.Succeeded": "🎁Argianon claimable supplies have all been claimed~"
         },
         "action": {
             "type": "Click",

@@ -1,112 +1,95 @@
-# Android APK 打包
+# Android APK Packaging
 
-`install.yml` 的 `android` / `android_mirrorchyan` 两个 job 用
-[Aliothmoon/MaaFwApp](https://github.com/Aliothmoon/MaaFwApp)（固定 ref）把本仓库的 PI
-打成 APK，并在正式发版时把 APK 传到 MirrorChyan。
+The `android` and `android_mirrorchyan` jobs in `install.yml` utilize
+[Aliothmoon/MaaFwApp](https://github.com/Aliothmoon/MaaFwApp) (pinned ref) to package this repository's
+PI into an Android APK, and upload the APK to MirrorChyan upon official releases.
 
-## 包名
+## Package Name
 
 ```
-applicationId = BASE_APPLICATION_ID + "." + pi-profile.yaml 的 app.id
+applicationId = BASE_APPLICATION_ID + "." + pi-profile.yaml app.id
               = com.maafw.mq                + vero
               = com.maafw.mq.vero
 ```
 
-- `patch_maafwapp.py` 改 MaaFwApp 里的 `BASE_APPLICATION_ID`（上游是 `com.aliothmoon.maafw`）；
-- `pi-profile.yaml` 的 `app.id` 是后缀，只收小写包段（`[a-z][a-z0-9_]*`），大写和连字符会被拒绝。
+- `patch_maafwapp.py` modifies `BASE_APPLICATION_ID` in MaaFwApp (upstream default is `com.aliothmoon.maafw`).
+- In `pi-profile.yaml`, `app.id` is the suffix; only lowercase package segments (`[a-z][a-z0-9_]*`) are accepted. Uppercase characters and hyphens are rejected.
 
-**包名一旦发过版就不能再改**，改了老用户只能卸载重装。另外 debug 与 release 的
-`applicationId` 相同、只有签名不同，所以先装了 debug 包之后 release 包装不上，
-必须卸载重装 —— 定好包名后就一直用 release 包测。
+**Once released, the package name cannot be changed**, otherwise existing users must uninstall and reinstall. Additionally, debug and release builds share the same `applicationId` with different signatures, so installing a debug build prevents installing release updates without reinstalling. Always test with release builds after determining the package name.
 
-## Repository secrets
+## Repository Secrets
 
-`android` job 读这 4 个，**必须四个一起配**（只配 1~3 个会直接 `exit 1`；一个都不配则出
-debug 签名包，产物名带 `-debug`）：
+The `android` job requires all 4 of these secrets configured together (configuring only 1 to 3 will trigger `exit 1`; configuring none produces an unsigned debug build with `-debug` suffix):
 
-| Secret | 内容 |
+| Secret | Description |
 |:---|:---|
-| `ANDROID_KEYSTORE_BASE64` | keystore 文件的 base64，**必须单行** |
-| `ANDROID_KEYSTORE_PASSWORD` | store password |
-| `ANDROID_KEY_ALIAS` | 别名 |
-| `ANDROID_KEY_PASSWORD` | key password（PKCS12 下必须与 store 相同） |
+| `ANDROID_KEYSTORE_BASE64` | Base64-encoded keystore file, **must be a single line** |
+| `ANDROID_KEYSTORE_PASSWORD` | Keystore password |
+| `ANDROID_KEY_ALIAS` | Key alias |
+| `ANDROID_KEY_PASSWORD` | Key password (under PKCS12, must match store password) |
 
-`android_mirrorchyan` job 另外读 `ANDROID_MIRRORCHYANUPLOADTOKEN` —— 注意这是**另一个**
-secret，和桌面端 `mirrorchyan_release.yml` 用的 `MirrorChyanUploadToken` 不是同一个。
+The `android_mirrorchyan` job additionally reads `ANDROID_MIRRORCHYANUPLOADTOKEN` — note that this is a **separate** secret from `MirrorChyanUploadToken` used by the desktop `mirrorchyan_release.yml`.
 
-### 当前密钥库（离线备份：`D:\keys\Maa_KES\`）
+### Current Keystore (Offline Backup: `D:\keys\Maa_KES\`)
 
-| 项 | 值 |
+| Property | Value |
 |:---|:---|
-| 文件 | `maakes-release.jks`（4328 bytes，PKCS12） |
-| base64 | `maakes-release.jks.b64`（5772 chars，单行）；即 `ANDROID_KEYSTORE_BASE64` |
-| 别名 | `maakes`；即 `ANDROID_KEY_ALIAS` |
-| sha256 | `bf1e99cf902bcf7a9016cfaf75e67c0197880d1f9682001643aca91657a8d90a` |
+| File | `maakes-release.jks` (4328 bytes, PKCS12) |
+| Base64 | `maakes-release.jks.b64` (5772 chars, single line); mapped to `ANDROID_KEYSTORE_BASE64` |
+| Alias | `maakes`; mapped to `ANDROID_KEY_ALIAS` |
+| SHA-256 | `bf1e99cf902bcf7a9016cfaf75e67c0197880d1f9682001643aca91657a8d90a` |
 
-CI 日志里那行 `keystore: ... sha256: ...` 就是拿这个值对：对不上说明 secret 里的字节
-和本地文件不一致（多半是抄写截断）。
+In CI logs, the line `keystore: ... sha256: ...` validates against this hash: a mismatch indicates truncated or corrupted secret values (typically copy-paste truncation).
 
-**这个 keystore 一旦发过版就永远不能换**，换了老用户必须卸载重装。密码存在密码管理器里，
-`.jks` / `.b64` 不进仓库（已在 `.gitignore` 里挡掉 `*.jks` / `*.jks.b64` / `*.keystore`）。
+**Never replace this keystore once released**, as changing it forces all users to uninstall and reinstall. Store credentials in a password manager; `.jks` and `.b64` files must never be committed to git (blocked by `.gitignore`).
 
 ## MirrorChyan
 
-| 位置 | 值 |
+| Location | Value |
 |:---|:---|
-| workflow env `ANDROID_MIRRORCHYAN_RID`（`install.yml` 顶部，全流程只有这一处） | `Maa_Kes_exec` |
-| 桌面端 `assets/interface.json` 的 `mirrorchyan_rid` | `MaaKes`（不动） |
+| Workflow env `ANDROID_MIRRORCHYAN_RID` (top of `install.yml`) | `Maa_Kes_exec` |
+| Desktop `assets/interface.json` `mirrorchyan_rid` | `MaaKes` (do not alter) |
 
-rid 写错（大小写不匹配、或后台没有这个 rid）上传必失败。
+Incorrect rid values (case mismatch or nonexistent backend rid) will cause upload failures.
 
-MaaFwApp 的更新检查不是从 workflow 读 rid，而是从 APK 内 `interface.json` 的
-`mirrorchyan_rid` 读，并且固定带 `os=android` + 设备 ABI，要求返回 APK 链接。
-所以 Android 用独立 rid 时，打包时要用 `stage_pi_assets.py --rid` 把 APK 里那份
-`interface.json` 一起改掉，否则 app 会去查桌面那个 rid、拿不到 android 资源
-（会回退 GitHub 源，但吃不到 CDN）。桌面端不受影响。
+MaaFwApp update checks read `mirrorchyan_rid` directly from `interface.json` inside the APK (passing `os=android` and device ABI) to retrieve download URLs. When using a separate Android rid, the build script uses `stage_pi_assets.py --rid` to patch `interface.json` inside the staged PI assets without altering the repository's root `interface.json`. Desktop builds remain unaffected.
 
-## 本地验证（不用等 CI）
+## Local Verification (No CI Required)
 
 ```bash
-# 1. 铺 OCR 模型（assets/resource/model/ocr 没进 git）
+# 1. Download and configure OCR models (assets/resource/model/ocr is gitignored)
 python tools/configure.py
 
-# 2. 组装扁平 PI 目录，并改掉里面那份 interface.json 的版本和 rid
+# 2. Assemble flat PI directory and patch interface.json version and rid
 python tools/ci/stage_pi_assets.py --tag v1.2.3 --rid Maa_Kes_exec
 
-# 3. 算 resource.hash（幂等，跑两次结果一致）
+# 3. Compute resource.hash (idempotent, identical results across runs)
 python tools/ci/gen_resource_hash.py build-android/pi-assets/interface.json \
   --root build-android/pi-assets
 ```
 
-要真出包就在 MaaFwApp 仓库里：
+To build the APK locally inside the MaaFwApp repository:
 
 ```bash
-export PI_PROFILE=<本仓库>/build-android/pi-assets/../../.github/android/pi-profile.yaml
+export PI_PROFILE=<repo_path>/build-android/pi-assets/../../.github/android/pi-profile.yaml
 python scripts/setup_maa_framework.py --tag v5.12.3
-./gradlew :app:assembleRelease      # 或 assembleDebug
+./gradlew :app:assembleRelease      # or assembleDebug
 ```
 
-签名走环境变量 `KEYSTORE_PATH` / `KEYSTORE_PASSWORD` / `KEY_ALIAS` / `KEY_PASSWORD`
-（`KEYSTORE_PATH` 为空时 release 是 unsigned，不报错）；`local.properties` 写
-`pi.profile=` 也能指配方。
+Signing parameters are supplied via environment variables `KEYSTORE_PATH` / `KEYSTORE_PASSWORD` / `KEY_ALIAS` / `KEY_PASSWORD` (when `KEYSTORE_PATH` is empty, release builds remain unsigned without error); `local.properties` can also specify `pi.profile=`.
 
-## 排错对照表
+## Troubleshooting Guide
 
-| 报错 | 原因 |
+| Error | Root Cause |
 |:---|:---|
-| `KeytoolException: Failed to read key ... : null` + `Caused by: java.io.EOFException` | 文件不是密钥库 / 被截断（base64 传错、二次编码、误传文本文件）。keystore 应该 4KB 上下，别把密码文本存成 `.jks` |
-| `keystore password was incorrect` / `Cannot recover key` | 密码错 |
-| `Alias <x> does not exist` | 别名错（预检会打印 keystore 里实际的别名列表） |
-| `app.id must be lowercase package segments` | `pi-profile.yaml` 的 `app.id` 有大写或连字符 |
-| `basename: missing operand` / `Input required and not supplied: path` | `MirrorChyan/uploading-action` 的 `Check upload token` 先失败了，后面两步是连带的，根因是 upload token |
+| `KeytoolException: Failed to read key ... : null` + `Caused by: java.io.EOFException` | File is not a valid keystore or was truncated (base64 corrupted or text pasted). Keystore should be ~4 KB. |
+| `keystore password was incorrect` / `Cannot recover key` | Incorrect keystore or key password. |
+| `Alias <x> does not exist` | Incorrect alias name (preflight checks print all available aliases in keystore). |
+| `app.id must be lowercase package segments` | `app.id` in `pi-profile.yaml` contains uppercase characters or hyphens. |
+| `basename: missing operand` / `Input required and not supplied: path` | `Check upload token` step in `MirrorChyan/uploading-action` failed; verify token validity. |
 
-## 其他打包路径
+## Other Packaging Pipelines
 
-`tools/install.py` 结尾会调 `gen_resource_hash.py` 算 `resource.hash`，这一步依赖 `MaaFw`
-（见 `tools/requirements.txt`）。它是**可选 + 容错**的：import 不到 `maa`（例如容器里没有
-native 运行库）就打一行警告跳过，不会让打包整体失败。新增打包路径时如果要装 `MaaFw`，
-记得补齐它的 native 依赖（`libatomic1` / `libstdc++6` / `libgomp1` 之类）。
+`tools/install.py` invokes `gen_resource_hash.py` at the end to compute `resource.hash`, which depends on `MaaFw` (`tools/requirements.txt`). This step is **optional with graceful fallback**: if `maa` cannot be imported (e.g., container lacks native dependencies), a warning is logged and packaging proceeds successfully. When adding new packaging pipelines with `MaaFw`, ensure native dependencies (`libatomic1`, `libstdc++6`, `libgomp1`) are installed.
 
-另外 `print` 中文/emoji 之前一定要先 `sys.stdout.reconfigure(encoding="utf-8")`：
-Windows 控制台默认 cp1252/GBK，否则「优雅降级」的分支自己会抛 `UnicodeEncodeError`
-把 exit code 变成 1。
+Always call `sys.stdout.reconfigure(encoding="utf-8")` before printing unicode characters or emoji to prevent `UnicodeEncodeError` crashes on Windows consoles using legacy code pages.

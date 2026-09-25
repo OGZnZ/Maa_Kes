@@ -94,7 +94,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备闪一卡"
+            "Node.Recognition.Succeeded": "About to flash a card"
         },
         "action": {
             "type": "Click",
@@ -362,7 +362,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "过喽~"
+            "Node.Recognition.Succeeded": "Stage cleared~"
         },
         "action": "Click",
         "next": [
@@ -416,7 +416,7 @@
                 ]
             }
         },
-        //应该有个剩余理智检查
+        // Should have a remaining-sanity check here
         "action": {
             "type": "Click",
             "param": {

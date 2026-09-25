@@ -1,5 +1,5 @@
 {
-    //都是双击
+    // All of these are double taps
     "卡厄思-通用-点击进入事件关卡": {
         "recognition": {
             "type": "TemplateMatch",
@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入事件关卡"
+            "Node.Recognition.Succeeded": "Preparing to enter the event stage"
         },
         "action": {
             "type": "Click",

@@ -2,12 +2,13 @@
     "task": [
         {
             "name": "自动推图",
+            "label": "Auto Progression",
             "default_check": false,
             "group": [
                 "工具"
             ],
             "entry": "工具-自动推图-任务开始层",
-            "description": "需要在此界面启动：<br/>![启动界面](./resource/base/image/图标/任务描述/自动推图.png)<br/>打不了卡厄思",
+            "description": "Must be started on this screen:<br/>![Start Screen](./resource/base/image/icon/task_description/auto_stage.png)<br/>Cannot automate Chaos (Roguelike) modes.",
             "option": [
                 "工具-自动推图-自行确认不再显示",
                 "工具-自动推图-可直接下一关时直接点击下一关"
@@ -16,7 +17,7 @@
     ],
     "option": {
         "工具-自动推图-自行确认不再显示": {
-            "label": "自行显示不再弹出确认",
+            "label": "Auto-confirm 'Do not show again'",
             "type": "switch",
             "cases": [
                 {
@@ -45,10 +46,10 @@
             ]
         },
         "工具-自动推图-可直接下一关时直接点击下一关": {
-            "label": "可直接下一关时直接点击下一关",
+            "label": "Advance Directly to Next Stage When Available",
             "type": "switch",
             "default_case": "No",
-            "description": "开启后虽然刷取速率提升但可能会错过支线",
+            "description": "Speed increases when enabled, but side branches might be missed",
             "cases": [
                 {
                     "name": "Yes",

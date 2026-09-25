@@ -1,5 +1,5 @@
 {
-    "卡厄思-通用-结算界面": { //默认撤离
+    "卡厄思-通用-结算界面": { // Evacuate by default
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -20,7 +20,7 @@
     },
     "卡厄思-通用-存档点-撤离": {
         "focus": {
-            "Node.Recognition.Succeeded": "将直接进行撤离"
+            "Node.Recognition.Succeeded": "Will evacuate directly"
         },
         "next": [
             "卡厄思-通用-撤离确认",

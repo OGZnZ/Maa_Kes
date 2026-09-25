@@ -2,12 +2,13 @@
     "task": [
         {
             "name": "自动剧情",
+            "label": "Auto Skip Story",
             "default_check": false,
             "group": [
                 "工具"
             ],
             "entry": "工具-剧情跳过-任务开始层",
-            "description": "这个只是会点剧情的跳过和跳过确认，不要跟自动推图放一块运行\n\n任务列表是顺序执行不是并列",
+            "description": "This only taps story Skip and the skip confirmation; do not run it together with Auto-Explore\n\nTasks in the list run in sequence, not in parallel",
             "option": [
                 "工具-剧情跳过-自行确认不再显示"
             ]
@@ -15,7 +16,7 @@
     ],
     "option": {
         "工具-剧情跳过-自行确认不再显示": {
-            "label": "自行显示不再弹出确认",
+            "label": "Auto-check \"Don't show again\"",
             "type": "switch",
             "cases": [
                 {

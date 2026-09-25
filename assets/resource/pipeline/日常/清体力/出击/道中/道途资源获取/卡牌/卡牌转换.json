@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备转换卡牌"
+            "Node.Recognition.Succeeded": "About to convert cards"
         },
         "action": {
             "type": "Click",

@@ -15,10 +15,10 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "命运选择"
+            "Node.Recognition.Succeeded": "Fate selection"
         },
         "action": {
-            //随机点击
+            // Click randomly
             "type": "Click",
             "param": {
                 "target": [
@@ -58,7 +58,7 @@
             }
         },
         "action": {
-            //随机点击
+            // Click randomly
             "type": "Click",
             "param": {
                 "target": [

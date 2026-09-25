@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 未发现的闪光!"
+            "Node.Recognition.Succeeded": "Loot: undiscovered sparkle!"
         },
         "action": {
             "type": "Click",

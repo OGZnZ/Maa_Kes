@@ -1,5 +1,5 @@
 {
-    //用户自选优先级-根据奖励
+    // user-defined priority - by reward
     "日常-政策-灾难爆发": {
         "recognition": {
             "type": "TemplateMatch",
@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "灾难爆发！你的评级是？(需要所有等级截图,请投稿)"
+            "Node.Recognition.Succeeded": "Disaster erupted! What is your rating? (screenshots of all ranks needed, please submit)"
         },
         "action": {
             "type": "Click",

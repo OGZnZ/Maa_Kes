@@ -6,7 +6,7 @@
             "工具-自动推图-点击跳过按钮"
         ]
     },
-    "工具-自动推图-总任务层": { //已进入选关界面
+    "工具-自动推图-总任务层": { // Already on the stage select screen
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -43,7 +43,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "发现卡厄思,请自行攻略"
+            "Node.Recognition.Succeeded": "Found a Kaesi stage; please clear it manually"
         },
         "action": {
             "type": "Click"
@@ -61,7 +61,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "目光所及的关卡已经打完了,开始滑动检查是否有新的关卡可挑战\n\n第一次检查"
+            "Node.Recognition.Succeeded": "All visible stages are cleared; swiping to check for new challengeable stages\n\nFirst check"
         },
         "action": {
             "type": "Swipe",
@@ -99,7 +99,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第二次检查"
+            "Node.Recognition.Succeeded": "Second check"
         },
         "action": {
             "type": "Swipe",
@@ -137,7 +137,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第三次检查通过,能打的关卡都打完啦~剧情卡厄思暂不支持哦~"
+            "Node.Recognition.Succeeded": "Third check passed; all clearable stages are done~ Story Kaesi stages are not supported yet~"
         }
     },
     "工具-自动推图-画面中关卡未解锁": {
@@ -156,7 +156,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "发现可挑战的关卡！"
+            "Node.Recognition.Succeeded": "Found a challengeable stage!"
         },
         "action": "Click",
         "next": [
@@ -223,9 +223,9 @@
         },
         "next": [
             "工具-自动推图-可点击进入关卡",
-            "工具-自动推图-已进入剧情", //在“剧情处理.json”中处理
-            "工具-自动推图-已进入故事讲述", //在“剧情处理.json”中处理
-            "工具-自动推图-已进入编队", //在“战斗处理.json”中处理
+            "工具-自动推图-已进入剧情", // Handled in "story_handling.json"
+            "工具-自动推图-已进入故事讲述", // Handled in "story_handling.json"
+            "工具-自动推图-已进入编队", // Handled in "battle_handling.json"
             "[JumpBack]黑屏计数",
             "工具-自动推图-总任务层"
         ]
@@ -246,7 +246,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "通过一关!🎉"
+            "Node.Recognition.Succeeded": "Cleared one stage!🎉"
         },
         "action": {
             "type": "Click",
@@ -282,7 +282,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战斗失败T^T"
+            "Node.Recognition.Succeeded": "Battle failed T^T"
         },
         "next": [
             "工具-自动推图-总任务层",

@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "言语已呈现,一秒后检查是否成功刷到\"2张\""
+            "Node.Recognition.Succeeded": "Words have been revealed, checking in one second whether \"2 Cards\" was rerolled"
         },
         "post_delay": 1000,
         "next": [
@@ -24,7 +24,7 @@
             "肉鸽-刷开局神谕-未刷到对应言语-第一次检查"
         ]
     },
-    "肉鸽-刷开局神谕-刷到对应言语": { //忍受痛苦
+    "肉鸽-刷开局神谕-刷到对应言语": { // Endure Pain
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -41,7 +41,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已刷到制定神谕！"
+            "Node.Recognition.Succeeded": "Rerolled the designated oracle!"
         },
         "repeat": 2,
         "repeat_delay": 150,
@@ -52,7 +52,7 @@
             "肉鸽-刷开局神谕-刷到对应言语-已离开神谕检查"
         ]
     },
-    "肉鸽-刷开局神谕-刷到对应言语-已离开神谕检查": { //忍受痛苦
+    "肉鸽-刷开局神谕-刷到对应言语-已离开神谕检查": { // Endure Pain
         "inverse": true,
         "recognition": {
             "type": "TemplateMatch",
@@ -70,7 +70,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已进入神谕界面，结束任务"
+            "Node.Recognition.Succeeded": "Entered the oracle screen, ending task"
         }
     },
     "肉鸽-刷开局神谕-未刷到对应言语-第一次检查": {
@@ -91,7 +91,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到正确的言语,第一次检查"
+            "Node.Recognition.Succeeded": "Correct words not found, first check"
         },
         "post_delay": 800,
         "next": [
@@ -117,7 +117,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到正确的言语,第二次检查"
+            "Node.Recognition.Succeeded": "Correct words not found, second check"
         },
         "post_delay": 800,
         "next": [
@@ -143,7 +143,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到正确的言语,第三次检查未果,将重开"
+            "Node.Recognition.Succeeded": "Correct words not found, third check failed, will restart"
         },
         "post_delay": 800,
         "action": {

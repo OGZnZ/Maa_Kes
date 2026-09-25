@@ -17,7 +17,7 @@
         // "pre_delay": 0,
         "next": [
             "[JumpBack]录屏辅助-点击重来",
-            // "[JumpBack]活动-打歌-左侧_单次点击",
+            // "[JumpBack] Event - Rhythm Game - Left Single Tap",
             "[JumpBack]空任务"
         ]
     },

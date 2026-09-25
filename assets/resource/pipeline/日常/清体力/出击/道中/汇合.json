@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "角色汇合！"
+            "Node.Recognition.Succeeded": "Character rendezvous!"
         },
         "action": {
             "type": "Click",
@@ -50,7 +50,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "开始选择角色"
+            "Node.Recognition.Succeeded": "Starting character selection"
         },
         "next": [
             "出击-道中-角色汇合-点击选择推荐角色",
@@ -104,7 +104,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备选择推荐角色"
+            "Node.Recognition.Succeeded": "About to select the recommended character"
         },
         "action": {
             "type": "Click",
@@ -138,7 +138,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备选择推荐核心类型角色"
+            "Node.Recognition.Succeeded": "About to select a recommended core-type character"
         },
         "action": {
             "type": "Click",
@@ -172,7 +172,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备选择守护类型角色"
+            "Node.Recognition.Succeeded": "About to select a guardian-type character"
         },
         "action": {
             "type": "Click",
@@ -206,7 +206,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备选择攻击类型角色"
+            "Node.Recognition.Succeeded": "About to select an attack-type character"
         },
         "action": {
             "type": "Click",

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=NIG-Kes
+Comment=Chaos Zero Nightmare automation assistant - miaojiuqing / MaaFramework
+Comment[en]=Chaos Zero Nightmare automation assistant - miaojiuqing / MaaFramework
+Exec=nig-kes
+Icon=/usr/lib/nig-kes/resource/image/logo.png
+Terminal=false
+Type=Application
+Categories=Game;Utility;
+Keywords=maa;automation;game;
+StartupNotify=true

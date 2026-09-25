@@ -2,13 +2,13 @@
     "task": [
         {
             "name": "日常-领奖",
-            "label": "🎁领奖",
+            "label": "🎁Claim Rewards",
             "default_check": true,
             "group": [
                 "日常"
             ],
             "entry": "领奖-任务开始层",
-            "description": "来点试验想法",
+            "description": "Collect daily rewards, Archianon supplies, and mailbox items",
             "option": [
                 "领奖-日常活跃奖励",
                 "领奖-阿基亚农补给",
@@ -18,7 +18,7 @@
     ],
     "option": {
         "领奖-日常活跃奖励": {
-            "label": "日常活跃奖励",
+            "label": "Daily Activity Rewards",
             "type": "switch",
             "cases": [
                 {
@@ -40,7 +40,7 @@
             ]
         },
         "领奖-阿基亚农补给": {
-            "label": "阿基亚农补给",
+            "label": "Archianon Supply",
             "type": "switch",
             "cases": [
                 {
@@ -62,7 +62,7 @@
             ]
         },
         "领奖-邮箱": {
-            "label": "邮箱",
+            "label": "Mailbox",
             "type": "switch",
             "cases": [
                 {

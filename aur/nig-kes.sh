@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-APP_DIR="/usr/lib/maa-kes"
-RUN_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/maa-kes"
+APP_DIR="/usr/lib/nig-kes"
+RUN_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nig-kes"
 
 find_dotnet() {
     local dotnet="${DOTNET_ROOT:-/usr/share/dotnet}/dotnet"
@@ -20,7 +20,7 @@ find_dotnet() {
 
 DOTNET="$(find_dotnet)"
 if [ -z "$DOTNET" ]; then
-    echo "错误: 找不到 .NET 运行时。请安装 dotnet-runtime (>= 10.0)。" >&2
+    echo "Error: .NET runtime not found. Please install dotnet-runtime (>= 10.0)." >&2
     exit 1
 fi
 

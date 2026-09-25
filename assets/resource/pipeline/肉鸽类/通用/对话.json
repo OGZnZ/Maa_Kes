@@ -1,5 +1,5 @@
 {
-    //都是双击
+    // all of these are double-clicks
     "卡厄思-通用-对话点击_彩": {
         "recognition": {
             "type": "TemplateMatch",

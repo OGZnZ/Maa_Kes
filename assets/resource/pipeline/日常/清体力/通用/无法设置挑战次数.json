@@ -23,7 +23,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前体力不足以完成一次挑战率"
+            "Node.Recognition.Succeeded": "Current stamina insufficient for even one challenge"
         },
         "next": [
             "已进入首页-结束任务",

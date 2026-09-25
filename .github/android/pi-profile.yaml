@@ -27,6 +27,6 @@ exclude:
 
 app:
   id: vero
-  label: Maa_KES
+  label: NIG-Kes
   # 只收 png / webp，且必须真实存在；1080x1080 的 PNG。
   icon: ../../assets/resource/image/logo.png

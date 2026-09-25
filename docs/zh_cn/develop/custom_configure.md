@@ -1,59 +1,59 @@
-# 个性化配置
+# Custom Configuration
 
-## 目录
+## Table of Contents
 
-- [问题模板](#问题模板)
-- [VSCode插件](#vscode-plugins)
-- [代码格式化工具](#代码格式化工具)
+- [Issue Templates](#issue-templates)
+- [VSCode Extensions](#vscode-extensions)
+- [Code Formatting Tools](#code-formatting-tools)
 
-## 问题模板
+## Issue Templates
 
-好的模板可以节省您与用户的沟通时间，帮助您更快地找到问题所在。
+Good issue templates save communication time between maintainers and users, helping identify bugs and root causes faster.
 
-借鉴于 [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) 项目模板，我们结合 `MaaFramework` 实际使用情况，提供一套可行的选择。
+Adapted from the [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) project template and tailored for `MaaFramework` workflows, a practical configuration is provided.
 
-您可以简单的将 `.github/ISSUE_TEMPLATE` 目录下 `cn-bug-report.yaml` 和 `en-bug-report.yaml` 文件中 `MXX` 修改为您自己的项目名称，即可使用。
+You can customize `.github/ISSUE_TEMPLATE/cn-bug-report.yaml` and `en-bug-report.yaml` by replacing `MXX` with your project name.
 
-## VSCode 插件 <a id="vscode-plugins"></a>
+## VSCode Extensions <a id="vscode-extensions"></a>
 
-好的插件可以提高您的开发效率，事半功倍。
+Helpful extensions improve development efficiency significantly:
 
-- [Maa Pipeline Support](https://marketplace.visualstudio.com/items?itemName=nekosu.maa-support) | MaaFramework 插件，提供调试、截图、获取ROI、取色等功能
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) | Markdown 语法检查插件
+- [Maa Pipeline Support](https://marketplace.visualstudio.com/items?itemName=nekosu.maa-support) | MaaFramework extension providing pipeline debugging, screencaps, ROI selection, and color picking
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) | Markdown syntax and linting extension
 
-## 代码格式化工具
+## Code Formatting Tools
 
-代码格式化可统一代码风格，提高代码可读性，降低代码维护成本。
+Code formatters enforce a unified style, improve readability, and lower long-term maintenance costs.
 
-目前启用的格式化工具如下：
+Currently enabled formatting tools:
 
-| 文件类型 | 格式化工具 |
+| File Type | Formatter |
 | --- | --- |
-| JSON/Yaml | [prettier](https://prettier.io/) |
+| JSON/YAML | [Prettier](https://prettier.io/) |
 | Markdown | [MarkdownLint](https://github.com/DavidAnson/markdownlint-cli2) |
 
-另外还有 `oxipng` 无损压缩 PNG 图片。
+Additionally, `oxipng` is used for lossless PNG compression.
 
-### 利用 Pre-commit Hooks 自动进行代码格式化
+### Automated Formatting via Pre-commit Hooks
 
-1. 确保你的电脑上有 Python 与 Node 环境
+1. Ensure both Python and Node environments are installed on your machine.
 
-2. 在项目根目录下执行以下命令
+2. Run the following commands in the project root directory:
 
     ```bash
     pip install pre-commit
     pre-commit install
     ```
 
-如果pip安装后依然无法运行pre-commit，请确认pip安装地址已被添加到PATH
+If pre-commit fails to run after pip installation, verify that the pip binary directory is included in your system `PATH`.
 
-接下来，每次提交时都将会自动运行格式化工具，来确保你的代码格式符合规范
+Once configured, formatters will run automatically before each git commit to ensure code quality standards.
 
-### 格式化配置
+### Formatter Configurations
 
 #### Oxipng
 
-对应文件 `.pre-commit-config.yaml` 中以下部分：
+Configured in `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/shssoichiro/oxipng
@@ -63,11 +63,11 @@
       args: ["-q", "-o", "2", "-s", "--ng"]
 ```
 
-[参数说明](https://github.com/shssoichiro/oxipng)
+[Parameter Documentation](https://github.com/shssoichiro/oxipng)
 
 #### MarkdownLint
 
-对应文件 `.pre-commit-config.yaml` 中以下部分：
+Configured in `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/DavidAnson/markdownlint-cli2
@@ -80,11 +80,11 @@
       args: ["--fix", "--config", "docs/.markdownlint.yaml", "#**/node_modules"]
 ```
 
-配置文件 `docs/.markdownlint.yaml` , [具体规则](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)
+Configuration file: `docs/.markdownlint.yaml`, [Rule Details](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)
 
 #### Prettier
 
-对应文件 `.pre-commit-config.yaml` 中以下部分：
+Configured in `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/pre-commit/mirrors-prettier
@@ -96,8 +96,6 @@
         - json
 ```
 
+Configuration file: `.prettierrc.yaml`, [Options Documentation](https://prettier.io/docs/en/options.html)
 
-配置文件 `.prettierrc.yaml` , [具体规则](https://prettier.io/docs/en/options.html)
-
-这里用到了 "prettier-plugin-multiline-arrays" 插件，目的是保持多行数组，不需要则可删去。
-关联文件 `package.json` 以及 `package-lock.json` 。
+The plugin "prettier-plugin-multiline-arrays" is used here to maintain multiline array formatting (removable if not needed), referenced in `package.json` and `package-lock.json`.

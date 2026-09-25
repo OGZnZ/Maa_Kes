@@ -67,17 +67,17 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "言语已呈现,一秒后检查是否成功刷到\"忍受痛苦\"或\"献上一切\""
+            "Node.Recognition.Succeeded": "Words have been revealed, checking in one second whether \"Endure Pain\" or \"Offer Everything\" was rerolled"
         },
         "post_delay": 1000,
         "next": [
-            // "肉鸽-刷开局卡-刷到对应言语",
-            // "肉鸽-刷开局卡-未刷到对应言语-第一次检查"
+            // "Roguelike - Reroll Card - Rolled Target Oracle",
+            // "Roguelike - Reroll Card - Target Oracle Not Rolled - Check 1"
             "肉鸽-刷开局神谕-刷到对应言语",
             "肉鸽-刷开局神谕-未刷到对应言语-第一次检查"
         ]
     },
-    "肉鸽-刷开局卡-刷到对应言语": { //献上一切
+    "肉鸽-刷开局卡-刷到对应言语": { // Offer Everything
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -95,7 +95,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "刷到正确的言语了！"
+            "Node.Recognition.Succeeded": "Rerolled the correct words!"
         },
         "repeat": 2,
         "repeat_delay": 150,
@@ -138,7 +138,7 @@
             "肉鸽-刷开局卡-未刷到所需卡牌-第一次检查"
         ]
     },
-    "肉鸽-刷开局卡-刷到所需卡牌": { //分流
+    "肉鸽-刷开局卡-刷到所需卡牌": { // branch
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -155,7 +155,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已刷到所需卡牌🎉\n\n任务将停止"
+            "Node.Recognition.Succeeded": "Required card rerolled🎉\n\nTask will stop"
         }
     },
     "肉鸽-刷开局卡-未刷到所需卡牌-第一次检查": {
@@ -176,7 +176,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到所需卡牌,第一次检查"
+            "Node.Recognition.Succeeded": "Required card not found, first check"
         },
         "next": [
             "肉鸽-刷开局卡-刷到所需卡牌",
@@ -201,7 +201,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到所需卡牌,第二次检查"
+            "Node.Recognition.Succeeded": "Required card not found, second check"
         },
         "next": [
             "肉鸽-刷开局卡-刷到所需卡牌",
@@ -226,7 +226,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到所需卡牌,第三次检查未果,将重开"
+            "Node.Recognition.Succeeded": "Required card not found, third check failed, will restart"
         },
         "post_delay": 800,
         "action": {
@@ -265,7 +265,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到正确的言语,第一次检查"
+            "Node.Recognition.Succeeded": "Correct words not found, first check"
         },
         "post_delay": 800,
         "next": [
@@ -292,7 +292,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到正确的言语,第二次检查"
+            "Node.Recognition.Succeeded": "Correct words not found, second check"
         },
         "post_delay": 800,
         "next": [
@@ -319,7 +319,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未找到正确的言语,第三次检查未果,将重开"
+            "Node.Recognition.Succeeded": "Correct words not found, third check failed, will restart"
         },
         "post_delay": 800,
         "action": {
@@ -396,7 +396,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "确认逃脱"
+            "Node.Recognition.Succeeded": "Confirm escape"
         },
         "action": {
             "type": "Click",

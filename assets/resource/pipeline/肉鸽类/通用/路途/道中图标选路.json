@@ -46,7 +46,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入战斗关卡_普通"
+            "Node.Recognition.Succeeded": "Preparing to enter the normal battle stage"
         },
         "next": [
             "卡厄思-通用-点击进入战斗关卡_普通",
@@ -69,7 +69,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入战斗关卡_精英"
+            "Node.Recognition.Succeeded": "Preparing to enter the elite battle stage"
         },
         "next": [
             "卡厄思-通用-点击进入战斗关卡_精英",
@@ -94,7 +94,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入战斗关卡_BOSS"
+            "Node.Recognition.Succeeded": "Preparing to enter the BOSS battle stage"
         },
         "next": [
             "卡厄思-通用-点击进入战斗关卡_BOSS",
@@ -117,7 +117,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入事件关卡"
+            "Node.Recognition.Succeeded": "Preparing to enter the event stage"
         },
         "next": [
             "卡厄思-通用-点击进入事件关卡",
@@ -140,7 +140,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入存档点关卡"
+            "Node.Recognition.Succeeded": "Preparing to enter the checkpoint stage"
         },
         "next": [
             "卡厄思-通用-点击进入存档点关卡",
@@ -163,7 +163,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入篝火关卡"
+            "Node.Recognition.Succeeded": "Preparing to enter the campfire stage"
         },
         "next": [
             "卡厄思-通用-点击进入篝火关卡",

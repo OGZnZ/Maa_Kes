@@ -399,19 +399,19 @@ jobs:
           # 校验 Linux x86_64 二进制，sha256 写入 PKGBUILD
           SHA256=$(sha256sum "assets/MaaKes-linux-x86_64-${TAG}.zip" | cut -d' ' -f1)
 
-          mkdir -p aur-pkg/maa-kes
+          mkdir -p aur-pkg/nig-kes
 
-          # 复制 maa-kes.sh、maa-kes.desktop 等静态文件
-          cp repo/aur/maa-kes.sh        aur-pkg/maa-kes/
-          cp repo/aur/maa-kes.desktop    aur-pkg/maa-kes/
-          # 模板替换 @VERSION@ 和 @SHA256SUM_LINUX@
-          sed "s/@VERSION@/$VERSION/g" repo/aur/maa-kes.install > aur-pkg/maa-kes/maa-kes.install
-          sed "s/@VERSION@/$VERSION/g; s/@SHA256SUM_LINUX@/$SHA256/g" repo/aur/PKGBUILD > aur-pkg/maa-kes/PKGBUILD
-          sed "s/@VERSION@/$VERSION/g; s/@SHA256SUM_LINUX@/$SHA256/g" repo/aur/.SRCINFO > aur-pkg/maa-kes/.SRCINFO
+          # Copy nig-kes.sh, nig-kes.desktop static files
+          cp repo/aur/nig-kes.sh        aur-pkg/nig-kes/
+          cp repo/aur/nig-kes.desktop   aur-pkg/nig-kes/
+          # Template substitution for @VERSION@ and @SHA256SUM_LINUX@
+          sed "s/@VERSION@/$VERSION/g" repo/aur/nig-kes.install > aur-pkg/nig-kes/nig-kes.install
+          sed "s/@VERSION@/$VERSION/g; s/@SHA256SUM_LINUX@/$SHA256/g" repo/aur/PKGBUILD > aur-pkg/nig-kes/PKGBUILD
+          sed "s/@VERSION@/$VERSION/g; s/@SHA256SUM_LINUX@/$SHA256/g" repo/aur/.SRCINFO > aur-pkg/nig-kes/.SRCINFO
 
           cd aur-pkg
-          tar czf "../assets/maa-kes-aur.tar.gz" maa-kes/
-      # 生成 AUR 包如上
+          tar czf "../assets/nig-kes-aur.tar.gz" nig-kes/
+      # Generated AUR package as above
 
       - uses: softprops/action-gh-release@v2
         with:

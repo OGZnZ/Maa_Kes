@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已进入命运选择界面"
+            "Node.Recognition.Succeeded": "Entered the fate selection screen"
         },
         "next": [
             "卡厄思-通用-命运-已选中命运",
@@ -82,7 +82,7 @@
             "卡厄思-通用-命运选择界面_点击选择随机命运"
         ]
     },
-    "卡厄思-通用-命运-已选中命运": { //点击下一步
+    "卡厄思-通用-命运-已选中命运": { // click next
         "recognition": {
             "type": "ColorMatch",
             "param": {

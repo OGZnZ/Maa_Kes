@@ -122,7 +122,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "今日走棋子骰子次数已领取完毕"
+            "Node.Recognition.Succeeded": "Today's board-game dice rolls have all been claimed"
         },
         "next": [
             "已进入首页",

@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "肉鸽-刷开局",
-            "label": "卡厄思刷开局",
+            "label": "Chaos Reroll",
             "default_check": false,
             "group": [
                 "工具"
@@ -11,18 +11,18 @@
             "option": [
                 "肉鸽-刷开局-刷卡还是刷话"
             ],
-            "description": "需要在此界面启动：<br/>![启动界面](./resource/base/image/图标/任务描述/刷梦边.png)<br/>刷到指定卡就停"
+            "description": "Start on this screen:<br/>![Start Screen](./resource/base/image/icon/task_description/reroll_dream_border.png)<br/>Stops once the designated card is rolled"
         }
     ],
     "option": {
         "肉鸽-刷开局-刷卡还是刷话": {
-            "label": "刷指定卡还是指定神谕",
+            "label": "Target Type (Card or Oracle)",
             "type": "select",
             "default_case": "肉鸽-刷开局-刷指定卡",
             "cases": [
                 {
                     "name": "肉鸽-刷开局-刷指定卡",
-                    "label": "刷指定卡",
+                    "label": "Target Designated Card",
                     "option": [
                         "肉鸽-刷开局中立卡-刷取方式选择"
                     ],
@@ -37,7 +37,7 @@
                 },
                 {
                     "name": "肉鸽-刷开局-刷指定神谕",
-                    "label": "刷指定神谕",
+                    "label": "Target Designated Oracle",
                     "option": [
                         "肉鸽-刷开局神谕-神谕选择"
                     ],
@@ -53,21 +53,21 @@
             ]
         },
         "肉鸽-刷开局中立卡-刷取方式选择": {
-            "label": "刷取方式选择",
+            "label": "Reroll Matching Mode",
             "type": "select",
             "cases": [
                 {
                     "name": "肉鸽刷开局-刷取方式选择-图像匹配",
-                    "label": "图像匹配",
-                    "description": "固定几种,需要增加的话请截图联系作者提供截图",
+                    "label": "Image Matching",
+                    "description": "Fixed presets. To request more, please contact author with screenshots.",
                     "option": [
                         "肉鸽-刷开局中立卡-卡牌选择"
                     ]
                 },
                 {
                     "name": "肉鸽刷开局-刷取方式选择-文本匹配",
-                    "label": "文本匹配",
-                    "description": "需自行输入卡牌名称\n\n例:梦之边境\n\n文字识别不稳定.求稳还是用特征匹配",
+                    "label": "Text Matching (OCR)",
+                    "description": "Enter the card name manually.\n\nExample: Dream's Border\n\nOCR can be unstable; image matching is recommended.",
                     "option": [
                         "肉鸽-刷开局中立卡-卡牌名称输入"
                     ]
@@ -75,13 +75,13 @@
             ]
         },
         "肉鸽-刷开局中立卡-卡牌选择": {
-            "label": "卡牌选择",
+            "label": "Card Preset",
             "type": "select",
             "cases": [
                 {
                     "name": "肉鸽-刷开局中立卡-梦之边境",
-                    "label": "梦之边境",
-                    "description": "[安息]\n\n伤害300%\n\n被丢弃时,随机丢弃\n\n抽堆中的2张卡牌",
+                    "label": "Dream's Border",
+                    "description": "[Rest]\n\nDamage 300%\n\nWhen discarded: randomly discard 2 cards from draw pile",
                     "pipeline_override": {
                         "肉鸽-刷开局卡-刷到所需卡牌": {
                             "template": [
@@ -107,8 +107,8 @@
                 },
                 {
                     "name": "肉鸽-刷开局中立卡-装备包",
-                    "label": "装备包",
-                    "description": "[消耗/连击]\n\n抽取2",
+                    "label": "Equipment Pack",
+                    "description": "[Consume/Combo]\n\nDraw 2",
                     "pipeline_override": {
                         "肉鸽-刷开局卡-刷到所需卡牌": {
                             "template": [
@@ -135,12 +135,12 @@
             ]
         },
         "肉鸽-刷开局中立卡-卡牌名称输入": {
-            "label": "卡牌名称输入",
+            "label": "Card Name Input",
             "type": "input",
             "inputs": [
                 {
                     "name": "刷开局中立卡-自定义卡牌名称输入",
-                    "label": "自定义卡牌名称",
+                    "label": "Custom Card Name",
                     "default": "装备包"
                 }
             ],
@@ -204,13 +204,13 @@
             }
         },
         "肉鸽-刷开局神谕-神谕选择": {
-            "label": "神谕选择",
+            "label": "Oracle Selection",
             "type": "select",
             "cases": [
                 {
                     "name": "肉鸽-刷开局神谕-移除两张",
-                    "label": "移除两张",
-                    "description": "检测的是\"2弓\""
+                    "label": "Remove Two Cards",
+                    "description": "Detects '2 Cards'"
                 }
             ]
         }

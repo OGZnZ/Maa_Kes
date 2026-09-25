@@ -15,7 +15,7 @@
             }
         },
         "action": {
-            //点跳过
+            // click skip
             "type": "Click",
             "param": {
                 "target": [

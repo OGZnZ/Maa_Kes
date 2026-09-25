@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "进入装备重铸界面,将直接跳过"
+            "Node.Recognition.Succeeded": "Entered the gear recast screen; will skip it directly"
         },
         "action": {
             "type": "Click",

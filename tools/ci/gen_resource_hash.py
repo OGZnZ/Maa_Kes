@@ -1,10 +1,10 @@
-"""通过 maafw 计算 interface.resource 的 hash，并写入各 resource.hash 字段。
+"""Compute interface.resource hash via MaaFw and write to each resource.hash field.
 
-hash 依赖本机加载后的文件字节（含换行符等），不同平台结果可能不一致，
-请在目标平台上生成并写入对应安装包内的 interface.json。
+hash relies on the loaded file bytes (including line endings), which may differ across platforms.
+Please generate and write it to interface.json on the target platform.
 
-本仓库 .gitattributes 里是 `* text=auto eol=lf`，文本资源在任何平台都是 LF，
-因此同一个资源包在不同平台算出的 hash 应当一致。
+In this repo .gitattributes sets `* text=auto eol=lf`, so text resources use LF on all platforms,
+ensuring consistent hashes across platforms.
 """
 
 from __future__ import annotations
@@ -83,13 +83,13 @@ def main() -> int:
         nargs="?",
         type=Path,
         default=REPO_ROOT / "assets" / "interface.json",
-        help="interface.json 路径，默认 assets/interface.json",
+        help="Path to interface.json, default: assets/interface.json",
     )
     parser.add_argument(
         "--root",
         type=Path,
         default=None,
-        help="资源路径解析根目录，默认为 interface.json 所在目录",
+        help="Root directory for resource path resolution, defaults to directory containing interface.json",
     )
     args = parser.parse_args()
 

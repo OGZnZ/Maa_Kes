@@ -1,8 +1,8 @@
 {
-    // "日常-清体力-再战体力检查-开始层": {
+    // "Daily - Stamina - Repeat Battle Stamina Check - Start Layer": {
     //     "next": [
-    //         "日常-清体力-再战体力检查-不足再战",
-    //         "日常-清体力-再战体力检查-足以再战"
+    //         "Daily - Stamina - Repeat Battle Stamina Check - Insufficient Stamina",
+    //         "Daily - Stamina - Repeat Battle Stamina Check - Sufficient Stamina"
     //     ],
     //     "timeout": 3000
     // },

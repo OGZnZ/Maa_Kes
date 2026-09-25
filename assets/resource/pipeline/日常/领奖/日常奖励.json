@@ -152,7 +152,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "🎁今日活跃奖励已领取完毕~"
+            "Node.Recognition.Succeeded": "🎁Today's activity rewards have all been claimed~"
         },
         "action": {
             "type": "Click",

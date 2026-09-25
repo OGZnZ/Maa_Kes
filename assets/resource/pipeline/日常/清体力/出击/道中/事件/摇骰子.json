@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "你相信赌狗吗🎲"
+            "Node.Recognition.Succeeded": "Do you believe in luck? 🎲"
         },
         "action": {
             "type": "Click",
@@ -99,7 +99,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "赌徒大胜利！"
+            "Node.Recognition.Succeeded": "Gambler's great victory!"
         },
         "next": [
             "出击-道中-已进入路程选择界面",

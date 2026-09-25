@@ -6,9 +6,9 @@ for i in Toolkit.find_desktop_windows():
 
 @staticmethod
 def find_desktop_windows() -> List[DesktopWindow]:
-    """查询所有窗口信息 / Query all window info
+    """Query all desktop window information.
 
     Returns:
-        List[DesktopWindow]: 窗口列表 / Window list
+        List[DesktopWindow]: List of desktop windows
     """
     Toolkit._set_api_properties()

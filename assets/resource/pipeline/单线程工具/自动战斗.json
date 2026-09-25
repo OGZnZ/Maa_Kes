@@ -1,6 +1,6 @@
 {
-    //炼制模型计划
-    //炼制四个卡牌类型和敌人，识别怪的菱形行动条
+    // Model training plan
+    // Train four card types plus enemies; recognize the monster's diamond action bar
     "工具-自动战斗-任务开始层": {
         "next": [
             "通用-战中-已进入战斗界面",
@@ -13,13 +13,13 @@
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     0
@@ -27,7 +27,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "发现血条,确认为进入了战斗"
+            "Node.Recognition.Succeeded": "HP bar found, confirmed in battle"
         },
         "next": [
             "通用-战中-可发动卡牌",
@@ -93,7 +93,7 @@
             // }
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "检查有可发动的EGO技能"
+            "Node.Recognition.Succeeded": "Checking for usable EGO skills"
         },
         "action": {
             "type": "Click",
@@ -185,13 +185,13 @@
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     0
@@ -199,8 +199,8 @@
             }
         },
         "focus": {
-            "Node.Action.Starting": "👀正在寻找怪物位置...",
-            "Node.Recognition.Succeeded": "找到你了!👁️"
+            "Node.Action.Starting": "👀Looking for monster positions...",
+            "Node.Recognition.Succeeded": "Found you!👁️"
         },
         "next": [
             "[JumpBack]通用-战中-可发动EGO",
@@ -213,7 +213,7 @@
             "通用-战中-拖动卡牌给于敌人-无可发动卡牌"
         ]
     },
-    //弃牌界面
+    // Discard screen
     "通用-战中-弃牌界面-消耗卡牌选择": {
         "recognition": {
             "type": "TemplateMatch",
@@ -233,7 +233,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "触发了需要选择卡牌丢弃/消耗的界面"
+            "Node.Recognition.Succeeded": "Triggered the discard/consume card selection screen"
         },
         "next": [
             "通用-战中-弃牌-可发动",
@@ -268,13 +268,13 @@
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     1,
@@ -287,7 +287,7 @@
             }
         },
         "focus": {
-            "Node.Action.Starting": "识别到可用卡牌，开始点击"
+            "Node.Action.Starting": "Usable card detected, starting to tap"
         },
         "action": {
             "type": "Click",
@@ -306,7 +306,7 @@
             "通用-战中-弃牌-可用卡牌识别"
         ]
     },
-    //抽卡/选择
+    // Draw/select
     "通用-战中-三选一界面-卡牌选择": {
         "recognition": {
             "type": "TemplateMatch",
@@ -325,7 +325,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "触发了需要选择卡牌获得/功能选择的界面"
+            "Node.Recognition.Succeeded": "Triggered the card draw/function selection screen"
         },
         "next": [
             "通用-战中-寻找怪物位置",
@@ -351,7 +351,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "将随机选择卡牌🎲"
+            "Node.Recognition.Succeeded": "Will pick a random card🎲"
         },
         "action": {
             "type": "Click",
@@ -369,7 +369,7 @@
             "通用-战中-三选一-随机选择"
         ]
     },
-    //闪光
+    // Sparkle
     "通用-战中-闪光-卡牌选择": {
         "recognition": {
             "type": "TemplateMatch",
@@ -387,7 +387,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "触发了需要选择卡牌获得/功能选择的界面"
+            "Node.Recognition.Succeeded": "Triggered the card draw/function selection screen"
         },
         "next": [
             "通用-战中-寻找怪物位置",
@@ -401,13 +401,13 @@
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     1,
@@ -493,20 +493,20 @@
     },
     "通用-战中-拖动卡牌给于敌人-崩溃类": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试拯救干员于水火之中"
+            "Node.Recognition.Succeeded": "Trying to rescue the operator from danger"
         },
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     5
@@ -538,20 +538,20 @@
     },
     "通用-战中-拖动卡牌给于敌人-强化类": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试使用一张强化卡"
+            "Node.Recognition.Succeeded": "Trying to play a buff card"
         },
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     2
@@ -586,20 +586,20 @@
     },
     "通用-战中-拖动卡牌给于敌人-技能类": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试使用一张技能卡"
+            "Node.Recognition.Succeeded": "Trying to play a skill card"
         },
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     3
@@ -634,20 +634,20 @@
     },
     "通用-战中-拖动卡牌给于敌人-攻击类": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试使用一张攻击卡"
+            "Node.Recognition.Succeeded": "Trying to play an attack card"
         },
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     1
@@ -682,20 +682,20 @@
     },
     "通用-战中-拖动卡牌给于敌人-诅咒类": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试使用一张诅咒卡"
+            "Node.Recognition.Succeeded": "Trying to play a curse card"
         },
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     4
@@ -730,20 +730,20 @@
     },
     "通用-战中-拖动卡牌给于敌人-异常类": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试使用一张状态异常卡"
+            "Node.Recognition.Succeeded": "Trying to play an abnormal-status card"
         },
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "battle.onnx",
                 "labels": [
-                    "monster", //怪物_0
-                    "kp_Attack", //攻击_1
-                    "kp_better", //强化_2
-                    "kp_skill", //技能_3
-                    "kp_curse", //诅咒_4
-                    "kp_san", //崩溃_5
-                    "kp_abnormal" //异常_6
+                    "monster", // monster_0
+                    "kp_Attack", // attack_1
+                    "kp_better", // buff_2
+                    "kp_skill", // skill_3
+                    "kp_curse", // curse_4
+                    "kp_san", // breakdown_5
+                    "kp_abnormal" // abnormal_6
                 ],
                 "expected": [
                     6
@@ -777,6 +777,6 @@
         ]
     },
     "通用-战斗结束": {
-        //啥也识别不到就当结束了呗
+        // If nothing is recognized, treat the battle as over
     }
 }

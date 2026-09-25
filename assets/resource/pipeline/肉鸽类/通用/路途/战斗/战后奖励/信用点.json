@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 信用点!"
+            "Node.Recognition.Succeeded": "Loot: credits!"
         },
         "action": {
             "type": "Click",

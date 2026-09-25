@@ -155,7 +155,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "有病人!准备接受治疗❤️‍🩹"
+            "Node.Recognition.Succeeded": "Patients found! Ready for treatment❤️‍🩹"
         },
         "pre_delay": 200,
         "post_delay": 400,
@@ -192,9 +192,9 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "没病人了"
+            "Node.Recognition.Succeeded": "No more patients"
         },
-        "next": [ //百花齐放
+        "next": [ // fan out to all branches
             "已进入首页",
             "[JumpBack]通用-回首页",
             "[JumpBack]黑屏计数",
@@ -224,9 +224,9 @@
     "疗愈中心-等待处理": {
         "enabled": false,
         "focus": {
-            "Node.Recognition.Succeeded": "疗愈中心病人状况等待用户处理..."
+            "Node.Recognition.Succeeded": "Trauma center patient status awaiting user handling..."
         },
-        "next": [ //百花齐放
+        "next": [ // fan out to all branches
             "已进入首页",
             "[JumpBack]通用-回首页",
             "[JumpBack]黑屏计数"
@@ -235,7 +235,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     "疗愈中心-记忆消除": {
         "enabled": false,
-        //考虑增加检查单元币是否充足的节点
+        // consider adding a node to check whether unit coins are sufficient
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -251,7 +251,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "执行清除记忆🍂"
+            "Node.Recognition.Succeeded": "Performing memory wipe🍂"
         },
         "action": {
             "type": "Click",
@@ -285,7 +285,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "记忆清除确认🍂"
+            "Node.Recognition.Succeeded": "Memory wipe confirmed🍂"
         },
         "action": {
             "type": "Click",
@@ -310,7 +310,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     "疗愈中心-咨询": {
         "enabled": false,
-        //考虑增加检查旅行卷是否充足的节点
+        // consider adding a node to check whether travel tickets are sufficient
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -326,7 +326,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "执行咨询🚑"
+            "Node.Recognition.Succeeded": "Performing consultation🚑"
         },
         "action": {
             "type": "Click",
@@ -360,7 +360,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "心理咨询确认🏥"
+            "Node.Recognition.Succeeded": "Counseling confirmed🏥"
         },
         "action": {
             "type": "Click",
@@ -384,7 +384,7 @@
         ]
     },
     "疗愈中心-咨询-抉择": {
-        //左右弹出两个回答的时候
+        // when two answers pop up on the left and right
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -411,14 +411,14 @@
         "action": {
             "type": "Click",
             "param": {
-                //左
+                // left
                 "target": [
                     232,
                     296,
                     125,
                     81
                 ]
-                //右
+                // right
                 // "target": [232, 296, 125, 81]
             }
         },
@@ -445,7 +445,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "批准出院🏥"
+            "Node.Recognition.Succeeded": "Discharge approved🏥"
         },
         "pre_delay": 200,
         "post_delay": 1000,

@@ -1,5 +1,5 @@
 {
-    "卡厄思-通用-卡牌奖励三选一": { //直接跳
+    "卡厄思-通用-卡牌奖励三选一": { // skip directly
         "recognition": {
             "type": "TemplateMatch",
             "param": {

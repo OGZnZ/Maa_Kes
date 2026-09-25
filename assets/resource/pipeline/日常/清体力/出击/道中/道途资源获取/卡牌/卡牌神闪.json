@@ -17,7 +17,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "神之闪光！"
+            "Node.Recognition.Succeeded": "Divine flash!"
         },
         "action": {
             "type": "Click",

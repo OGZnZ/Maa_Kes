@@ -2,14 +2,14 @@
     "task": [
         {
             "name": "清体力",
-            "label": "模拟",
+            "label": "Simulation",
             "icon": "./resource/image/图标/任务图标/模拟.png",
             "default_check": true,
             "group": [
                 "日常"
             ],
             "entry": "清体力-任务开始层",
-            "description": "剩余体力不足支撑所选战斗效率时会自行尝试减少战斗效率\n\n记忆碎片没金色可能会识别不到,不过没金色你还刷记忆碎片干嘛)",
+            "description": "If the remaining stamina can't support the selected battle efficiency, it will automatically try lowering it\n\nMemory-fragment stages without gold drops may fail recognition — but if there's no gold, why farm memory fragments anyway?",
             "option": [
                 "日常-清体力-刷取大类型分类",
                 "日常-清体力-战斗效率选择",
@@ -19,13 +19,13 @@
     ],
     "option": {
         "日常-清体力-战斗效率选择": {
-            "label": "战斗效率选择",
+            "label": "Battle Efficiency",
             "type": "select",
-            "description": "单个任务只会执行一次",
+            "description": "Each task runs only once",
             "cases": [
                 {
                     "name": "清体力-战斗效率选择-不动",
-                    "label": "不进行更改",
+                    "label": "Leave Unchanged",
                     "pipeline_override": {
                         "清体力-战斗效率-开始执行层": {
                             "enabled": false
@@ -100,8 +100,8 @@
             ]
         },
         "日常-清体力-挑战直到体力耗尽": {
-            "label": "打到体力耗尽为止",
-            "description": "关闭后战斗结束会返回超时空流域区域",
+            "label": "Fight Until Stamina Runs Out",
+            "description": "When disabled, returns to the Super-Spacetime Basin area after battle",
             "type": "switch",
             "cases": [
                 {
@@ -138,7 +138,7 @@
                         "通用-点击返回": {
                             "post_delay": 1000
                         },
-                        "日常-清体力-再战体力检查-足以再战": { //直接点确认
+                        "日常-清体力-再战体力检查-足以再战": { //Tap confirm directly
                             "target": [
                                 1012,
                                 642,
@@ -151,13 +151,13 @@
             ]
         },
         "日常-清体力-刷取大类型分类": {
-            "label": "类型选择",
+            "label": "Farm Category",
             "type": "select",
             "default_case": "清体力-成长",
             "cases": [
                 {
                     "name": "清体力-成长",
-                    "label": "成长(基础养成材料)",
+                    "label": "Growth (Basic Training Materials)",
                     "pipeline_override": {
                         "清体力-刷取类型接口": {
                             "next": [
@@ -171,7 +171,7 @@
                 },
                 {
                     "name": "清体力-主战员",
-                    "label": "主战员(主战员晋升材料)",
+                    "label": "Main Combatants (Main Combatant Promotion Materials)",
                     "pipeline_override": {
                         "清体力-刷取类型接口": {
                             "next": [
@@ -185,7 +185,7 @@
                 },
                 {
                     "name": "清体力-辅战员",
-                    "label": "辅战员(辅战员晋升材料)",
+                    "label": "Support Combatants (Support Combatant Promotion Materials)",
                     "pipeline_override": {
                         "清体力-刷取类型接口": {
                             "next": [
@@ -199,7 +199,7 @@
                 },
                 {
                     "name": "清体力-潜能",
-                    "label": "潜能(主战员技能升级材料)",
+                    "label": "Potential (Main Combatant Skill Upgrade Materials)",
                     "pipeline_override": {
                         "清体力-刷取类型接口": {
                             "next": [
@@ -213,8 +213,8 @@
                 },
                 {
                     "name": "清体力-记忆碎片",
-                    "label": "记忆碎片(圣遗物(bushi))",
-                    "description": "暂时无法设定挑战次数,待重构",
+                    "label": "Memory Fragments (Artifacts (jk))",
+                    "description": "Challenge count can't be set yet — pending refactor",
                     "pipeline_override": {
                         "清体力-刷取类型接口": {
                             "next": [
@@ -228,7 +228,7 @@
                 },
                 {
                     "name": "清体力-挑战",
-                    "label": "挑战(周本)",
+                    "label": "Challenge (Weekly)",
                     "pipeline_override": {
                         "清体力-刷取类型接口": {
                             "next": [
@@ -243,13 +243,13 @@
             ]
         },
         "日常-清体力-成长刷取选择": {
-            "label": "成长刷取选择",
+            "label": "Growth Farm Target",
             "type": "select",
             "default_case": "日常-清体力-成长刷取选择-主战员升级材料",
             "cases": [
                 {
                     "name": "日常-清体力-成长刷取选择-单元币",
-                    "label": "单元币",
+                    "label": "Unit Coins",
                     "icon": "./resource/image/图标/养成材料/单元币.png",
                     "pipeline_override": {
                         "清体力-成长-刷取选择接口": {
@@ -261,7 +261,7 @@
                 },
                 {
                     "name": "日常-清体力-成长刷取选择-主战员升级材料",
-                    "label": "主战员升级材料",
+                    "label": "Main Combatant Upgrade Materials",
                     "icon": "./resource/image/图标/养成材料/主战升级.png",
                     "pipeline_override": {
                         "清体力-成长-刷取选择接口": {
@@ -273,7 +273,7 @@
                 },
                 {
                     "name": "日常-清体力-成长刷取选择-辅战员升级材料",
-                    "label": "辅战员升级材料",
+                    "label": "Support Combatant Upgrade Materials",
                     "icon": "./resource/image/图标/养成材料/辅战升级.png",
                     "pipeline_override": {
                         "清体力-成长-刷取选择接口": {
@@ -286,13 +286,13 @@
             ]
         },
         "日常-清体力-主战员刷取选择": {
-            "label": "主战员刷取选择",
+            "label": "Main Combatant Class",
             "type": "select",
             "default_case": "日常-清体力-主战员刷取选择-游侠",
             "cases": [
                 {
                     "name": "日常-清体力-主战员刷取选择-前锋",
-                    "label": "前锋",
+                    "label": "Striker",
                     "icon": "./resource/image/图标/职业分支/前锋.png",
                     "pipeline_override": {
                         "清体力-主战员-刷取选择接口": {
@@ -304,7 +304,7 @@
                 },
                 {
                     "name": "日常-清体力-主战员刷取选择-守卫",
-                    "label": "守卫",
+                    "label": "Guardian",
                     "icon": "./resource/image/图标/职业分支/守卫.png",
                     "pipeline_override": {
                         "清体力-主战员-刷取选择接口": {
@@ -316,7 +316,7 @@
                 },
                 {
                     "name": "日常-清体力-主战员刷取选择-游侠",
-                    "label": "游侠",
+                    "label": "Ranger",
                     "icon": "./resource/image/图标/职业分支/游侠.png",
                     "pipeline_override": {
                         "清体力-主战员-刷取选择接口": {
@@ -328,7 +328,7 @@
                 },
                 {
                     "name": "日常-清体力-主战员刷取选择-猎人",
-                    "label": "猎人",
+                    "label": "Hunter",
                     "icon": "./resource/image/图标/职业分支/猎人.png",
                     "pipeline_override": {
                         "清体力-主战员-刷取选择接口": {
@@ -338,10 +338,10 @@
                         }
                     }
                 },
-                //需要滑动
+                // Requires scrolling
                 {
                     "name": "日常-清体力-主战员刷取选择-奥义师",
-                    "label": "奥义师",
+                    "label": "Arcanist",
                     "icon": "./resource/image/图标/职业分支/奥义师.png",
                     "pipeline_override": {
                         "清体力-主战员-刷取选择接口": {
@@ -356,7 +356,7 @@
                 },
                 {
                     "name": "日常-清体力-主战员刷取选择-操控师",
-                    "label": "操控师",
+                    "label": "Controller",
                     "icon": "./resource/image/图标/职业分支/操控师.png",
                     "pipeline_override": {
                         "清体力-主战员-刷取选择接口": {
@@ -372,13 +372,13 @@
             ]
         },
         "日常-清体力-辅战员刷取选择": {
-            "label": "辅战员刷取选择",
+            "label": "Support Combatant Class",
             "type": "select",
             "default_case": "日常-清体力-辅战员刷取选择-游侠",
             "cases": [
                 {
                     "name": "日常-清体力-辅战员刷取选择-前锋",
-                    "label": "前锋",
+                    "label": "Striker",
                     "icon": "./resource/image/图标/职业分支/前锋.png",
                     "pipeline_override": {
                         "清体力-辅战员-刷取选择接口": {
@@ -390,7 +390,7 @@
                 },
                 {
                     "name": "日常-清体力-辅战员刷取选择-守卫",
-                    "label": "守卫",
+                    "label": "Guardian",
                     "icon": "./resource/image/图标/职业分支/游侠.png",
                     "pipeline_override": {
                         "清体力-辅战员-刷取选择接口": {
@@ -402,7 +402,7 @@
                 },
                 {
                     "name": "日常-清体力-辅战员刷取选择-游侠",
-                    "label": "游侠",
+                    "label": "Ranger",
                     "icon": "./resource/image/图标/职业分支/游侠.png",
                     "pipeline_override": {
                         "清体力-辅战员-刷取选择接口": {
@@ -414,7 +414,7 @@
                 },
                 {
                     "name": "日常-清体力-辅战员刷取选择-猎人",
-                    "label": "猎人",
+                    "label": "Hunter",
                     "icon": "./resource/image/图标/职业分支/猎人.png",
                     "pipeline_override": {
                         "清体力-辅战员-刷取选择接口": {
@@ -424,10 +424,10 @@
                         }
                     }
                 },
-                //需要滑动
+                // Requires scrolling
                 {
                     "name": "日常-清体力-辅战员刷取选择-奥义师",
-                    "label": "奥义师",
+                    "label": "Arcanist",
                     "icon": "./resource/image/图标/职业分支/奥义师.png",
                     "pipeline_override": {
                         "清体力-辅战员-刷取选择接口": {
@@ -442,7 +442,7 @@
                 },
                 {
                     "name": "日常-清体力-辅战员刷取选择-操控师",
-                    "label": "操控师",
+                    "label": "Controller",
                     "icon": "./resource/image/图标/职业分支/操控师.png",
                     "pipeline_override": {
                         "清体力-辅战员-刷取选择接口": {
@@ -458,13 +458,13 @@
             ]
         },
         "日常-清体力-潜能刷取选择": {
-            "label": "潜能刷取选择",
+            "label": "Potential Attribute",
             "type": "select",
             "default_case": "日常-清体力-潜能刷取选择-热情",
             "cases": [
                 {
                     "name": "日常-清体力-潜能刷取选择-热情",
-                    "label": "热情",
+                    "label": "Passion",
                     "icon": "./resource/image/图标/属性/热情.png",
                     "pipeline_override": {
                         "清体力-潜能-刷取选择接口": {
@@ -476,7 +476,7 @@
                 },
                 {
                     "name": "日常-清体力-潜能刷取选择-秩序",
-                    "label": "秩序",
+                    "label": "Order",
                     "icon": "./resource/image/图标/属性/秩序.png",
                     "pipeline_override": {
                         "清体力-潜能-刷取选择接口": {
@@ -488,7 +488,7 @@
                 },
                 {
                     "name": "日常-清体力-潜能刷取选择-本能",
-                    "label": "本能",
+                    "label": "Instinct",
                     "icon": "./resource/image/图标/属性/本能.png",
                     "pipeline_override": {
                         "清体力-潜能-刷取选择接口": {
@@ -500,7 +500,7 @@
                 },
                 {
                     "name": "日常-清体力-潜能刷取选择-虚无",
-                    "label": "虚无",
+                    "label": "Void",
                     "icon": "./resource/image/图标/属性/虚无.png",
                     "pipeline_override": {
                         "清体力-潜能-刷取选择接口": {
@@ -510,10 +510,10 @@
                         }
                     }
                 },
-                //需要滑动
+                // Requires scrolling
                 {
                     "name": "日常-清体力-潜能刷取选择-正义",
-                    "label": "正义",
+                    "label": "Justice",
                     "icon": "./resource/image/图标/属性/正义.png",
                     "pipeline_override": {
                         "清体力-潜能-刷取选择接口": {
@@ -529,13 +529,13 @@
             ]
         },
         "日常-清体力-记忆碎片刷取选择": {
-            "label": "记忆碎片刷取选择",
+            "label": "Memory Fragment Stage",
             "type": "select",
             "default_case": "日常-清体力-记忆碎片刷取选择-进化与荆棘",
             "cases": [
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-进化与荆棘",
-                    "label": "进化与荆棘",
+                    "label": "Evolution and Thorns",
                     "icon": "./resource/image/图标/记忆碎片/组/进化与荆棘.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -547,7 +547,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-序曲与梦境",
-                    "label": "序曲与梦境",
+                    "label": "Prelude and Dreams",
                     "icon": "./resource/image/图标/记忆碎片/组/序曲与梦境.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -559,7 +559,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-欲望与主宰",
-                    "label": "欲望与主宰",
+                    "label": "Desire and Dominance",
                     "icon": "./resource/image/图标/记忆碎片/组/欲望与主宰.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -571,7 +571,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-焰与宝珠",
-                    "label": "焰与宝珠",
+                    "label": "Flame and Orbs",
                     "icon": "./resource/image/图标/记忆碎片/组/焰与宝珠.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -583,7 +583,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-地位与行踪",
-                    "label": "地位与行踪",
+                    "label": "Status and Tracks",
                     "icon": "./resource/image/图标/记忆碎片/组/地位与行踪.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -595,7 +595,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-光荣与权威",
-                    "label": "光荣与权威",
+                    "label": "Glory and Authority",
                     "icon": "./resource/image/图标/记忆碎片/组/光荣与权威.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -605,10 +605,10 @@
                         }
                     }
                 },
-                //从这里开始以下的需要滑动
+                // Scrolling required from here down
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-循环与命运",
-                    "label": "循环与命运",
+                    "label": "Cycle and Destiny",
                     "icon": "./resource/image/图标/记忆碎片/组/循环与命运.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -623,7 +623,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-贪婪与执着",
-                    "label": "贪婪与执着",
+                    "label": "Greed and Obsession",
                     "icon": "./resource/image/图标/记忆碎片/组/贪婪与执着.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -638,7 +638,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-金龟子与约定",
-                    "label": "金龟子与约定",
+                    "label": "Scarab and Promise",
                     "icon": "./resource/image/图标/记忆碎片/组/金龟子与约定.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -653,7 +653,7 @@
                 },
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-遗骸与工具",
-                    "label": "遗骸与工具",
+                    "label": "Remains and Tools",
                     "icon": "./resource/image/图标/记忆碎片/组/遗骸与工具.png",
                     "pipeline_override": {
                         "清体力-记忆碎片-刷取选择接口": {
@@ -669,15 +669,15 @@
             ]
         },
         "日常-清体力-挑战刷取选择": {
-            "label": "挑战刷取选择",
+            "label": "Weekly Challenge Boss",
             "type": "select",
             "default_case": "日常-清体力-挑战刷取选择-哀嚎的浪子",
             "cases": [
                 {
                     "name": "日常-清体力-挑战刷取选择-哀嚎的浪子",
-                    "label": "哀嚎的浪子",
+                    "label": "The Wailing Prodigal",
                     "icon": "./resource/image/图标/养成材料/周本掉落/哀嚎的浪子之瞳.png",
-                    // "description": "./resource/image/图标/养成材料/周本掉落/哀嚎的浪子之瞳.png",
+                    // description: Eye of the Wailing Prodigal icon
                     "pipeline_override": {
                         "清体力-挑战-刷取选择接口": {
                             "template": [
@@ -688,9 +688,9 @@
                 },
                 {
                     "name": "日常-清体力-挑战刷取选择-直面恐惧",
-                    "label": "直面恐惧",
+                    "label": "Face the Fear",
                     "icon": "./resource/image/图标/养成材料/周本掉落/谴责碎片.png",
-                    // "description": "./resource/image/图标/养成材料/周本掉落/谴责碎片.png",
+                    // description: Fragment of Condemnation icon
                     "pipeline_override": {
                         "清体力-挑战-刷取选择接口": {
                             "template": [

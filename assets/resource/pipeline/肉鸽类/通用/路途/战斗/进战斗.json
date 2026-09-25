@@ -104,7 +104,7 @@
                 "threshold": 0.8,
                 "model": "battle.onnx",
                 "expected": [
-                    0, //怪物_0
+                    0, // monster_0
                     1,
                     2,
                     3,
@@ -115,11 +115,11 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已进入战斗,准备检查战斗状态"
+            "Node.Recognition.Succeeded": "Entered battle; preparing to check the battle status"
         },
         "next": [
             "卡厄思-通用-战斗结束",
-            //自动战斗被锁，开始[JumpBack]自动战斗动作
+            // Auto-battle is locked; starting the [JumpBack] auto-battle action
             "卡厄思-通用-战斗状态-正处于自动战斗-通知层",
             "卡厄思-通用-已进入战斗",
             "卡厄思-通用-事件-点击继续",
@@ -145,7 +145,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "自动战斗中,等待战斗结束"
+            "Node.Recognition.Succeeded": "Auto-battling; waiting for the battle to end"
         },
         "next": [
             "卡厄思-通用-战斗结束",
@@ -199,7 +199,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战斗结束,开始验收战利品"
+            "Node.Recognition.Succeeded": "Battle over; starting to collect the loot"
         },
         "next": [
             "卡厄思-通用-战后奖励-信用点",
@@ -233,7 +233,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "奖励大概领完了,尝试离开"
+            "Node.Recognition.Succeeded": "Rewards probably all claimed; trying to leave"
         },
         "action": {
             "type": "Click",

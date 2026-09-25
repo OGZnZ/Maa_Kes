@@ -18,7 +18,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "🔥篝火很温暖,休息一下吧"
+            "Node.Recognition.Succeeded": "🔥 The campfire is warm, take a rest"
         },
         "action": "Click",
         "post_delay": 500,
@@ -97,7 +97,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "休息好了,动身吧"
+            "Node.Recognition.Succeeded": "Rested up, let's move out"
         },
         "action": {
             "type": "Click",
@@ -116,7 +116,7 @@
         ]
     },
     "出击-道中-篝火-商店检查": {
-        //以后再说
+        // Handle this later
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -132,7 +132,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "💰德朗的商店开门嘞,不过咱就看看,不买~"
+            "Node.Recognition.Succeeded": "💰 Derang's shop is open, but we'll just look, not buy~"
         },
         "action": "Click"
     }

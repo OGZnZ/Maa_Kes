@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 新卡牌!"
+            "Node.Recognition.Succeeded": "Loot: new card!"
         },
         "next": [
             "出击-道中-已进入路程选择界面",
@@ -38,7 +38,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 新卡牌!"
+            "Node.Recognition.Succeeded": "Loot: new card!"
         },
         "action": {
             "type": "Click",
@@ -72,7 +72,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 新命运!"
+            "Node.Recognition.Succeeded": "Loot: new fate!"
         },
         "action": {
             "type": "Click",
@@ -121,7 +121,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 装备!"
+            "Node.Recognition.Succeeded": "Loot: equipment!"
         },
         "pre_delay": 150,
         "post_delay": 500,
@@ -180,7 +180,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 信用点!"
+            "Node.Recognition.Succeeded": "Loot: credit points!"
         },
         "action": {
             "type": "Click",

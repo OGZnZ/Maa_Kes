@@ -63,7 +63,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "你这家伙,连给干员疗愈都不愿意吗"
+            "Node.Recognition.Succeeded": "You won't even heal your operators?"
         },
         "action": {
             "type": "Click",

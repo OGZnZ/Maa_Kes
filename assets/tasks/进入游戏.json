@@ -2,13 +2,13 @@
     "task": [
         {
             "name": "进入游戏",
-            "label": "🎮进入游戏",
+            "label": "🎮Launch Game",
             "default_check": true,
             "group": [
                 "日常"
             ],
             "entry": "进游戏-任务开始层",
-            "description": "暂不支持国服和国际服之外的模拟器游戏自启动,若有需要麻烦提供包名\n\nPC端使用请用管理员模式启动不然连接不上窗口\n\n分辨率一定要是16：9",
+            "description": "Auto-launching emulator games is currently only supported for the CN and Global servers; if you need another one, please provide the package name\n\nOn PC, launch from an administrator run, otherwise the window cannot be connected\n\nResolution must be 16:9",
             "pipeline_override": {
                 "进游戏-点击进入游戏": {
                     "enabled": true
@@ -21,11 +21,12 @@
     ],
     "option": {
         "模拟器自启动游戏": {
+            "label": "Auto Launch via Emulator",
             "type": "switch",
             "controller": [
-                "安卓端"
+                "Android"
             ],
-            "description": "目模拟器通过包名启动,PC端暂无方法直接启动游戏",
+            "description": "Emulators launch the game via package name; there is currently no way to launch the game directly on PC",
             "default_case": "No",
             "cases": [
                 {
@@ -45,14 +46,15 @@
             ]
         },
         "模拟器包名启动": {
-            "label": "渠道选择",
+            "label": "Server Select",
             "type": "select",
             "controller": [
-                "安卓端"
+                "Android"
             ],
             "cases": [
                 {
                     "name": "国服",
+                    "label": "CN Server",
                     "pipeline_override": {
                         "进游戏-任务开始层": {
                             "action": "StartApp",
@@ -62,6 +64,7 @@
                 },
                 {
                     "name": "国际服",
+                    "label": "Global Server",
                     "pipeline_override": {
                         "进游戏-任务开始层": {
                             "action": "StartApp",

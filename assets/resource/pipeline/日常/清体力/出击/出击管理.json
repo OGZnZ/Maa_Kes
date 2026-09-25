@@ -82,7 +82,7 @@
             "[JumpBack]通用-点击屏幕"
         ]
     },
-    //想做一个复杂的难度切换功能
+    // Want to build a complex difficulty-switching feature
     "出击-点击切换难度++": {
         "recognition": {
             "type": "TemplateMatch",
@@ -118,8 +118,8 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前难度未解锁,将降低难度",
-            "Node.Click.Succeeded": "难度⬇⬇"
+            "Node.Recognition.Succeeded": "Current difficulty is locked, lowering difficulty",
+            "Node.Click.Succeeded": "Difficulty ⬇⬇"
         },
         "action": {
             "type": "Click",
@@ -162,7 +162,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已切换至解锁难度"
+            "Node.Recognition.Succeeded": "Switched to an unlocked difficulty"
         },
         "action": {
             "type": "Click",
@@ -197,7 +197,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "开始检查硬核状态"
+            "Node.Recognition.Succeeded": "Starting hardcore-mode status check"
         },
         "next": [
             "出击-已选中所需硬核状态",
@@ -220,7 +220,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已关闭硬核模式"
+            "Node.Recognition.Succeeded": "Hardcore mode is off"
         },
         "next": [
             "出击-选角-当前未选中角色",

@@ -2,12 +2,13 @@
     "task": [
         {
             "name": "交互辅助",
+            "label": "Interactive Helper",
             "default_check": false,
             "group": [
                 "工具"
             ],
             "entry": "工具-交互辅助-任务开始层",
-            "description": "自行监测并点击所所选按键",
+            "description": "Watches on its own and taps the selected buttons",
             "option": [
                 "工具-交互辅助-继续挑战",
                 "工具-交互辅助-紫底白圈"
@@ -16,7 +17,7 @@
     ],
     "option": {
         "工具-交互辅助-继续挑战": {
-            "label": "继续挑战",
+            "label": "Continue Challenge",
             "type": "switch",
             "icon": "./resource/image/单线程工具/自动推图/再战.png",
             "default_case": "No",
@@ -40,7 +41,7 @@
             ]
         },
         "工具-交互辅助-紫底白圈": {
-            "label": "紫底白圈",
+            "label": "Purple Background, White Circle",
             "type": "switch",
             "icon": "./resource/image/通用/交互按钮/紫底白圆.png",
             "default_case": "No",

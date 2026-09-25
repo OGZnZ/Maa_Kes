@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已进入人物闪光选择界面"
+            "Node.Recognition.Succeeded": "Entered the character flash selection screen"
         },
         "next": [
             "卡厄思-通用-人物闪光触发-已选中",

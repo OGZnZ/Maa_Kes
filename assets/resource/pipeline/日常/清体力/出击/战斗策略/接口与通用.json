@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前选则的战斗策略为:\"进去就退\""
+            "Node.Recognition.Succeeded": "Current battle strategy: \"enter and retreat\""
         },
         "next": [
             "出击-策略-进了就退-已进入星之流浪者界面",

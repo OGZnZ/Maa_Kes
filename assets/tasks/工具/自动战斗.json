@@ -2,24 +2,24 @@
     "task": [
         {
             "name": "自动战斗",
-            "label": "⚔️自动战斗",
+            "label": "⚔️Auto Battle",
             "default_check": false,
             "group": [
                 "工具"
             ],
             "entry": "工具-自动战斗-任务开始层",
-            "description": "适用于无法战斗的场景",
+            "description": "Suitable for scenarios where battles cannot be auto-resolved in-game",
             "pipeline_override": {},
             "option": [
                 "自动战斗-自动释放EGO技能"
-                // "自动战斗-卡牌优先级_1"
+                // "Auto Battle - Card Priority 1"
             ]
         }
     ],
     "option": {
         "自动战斗-自动释放EGO技能": {
-            "label": "自动释放EGO",
-            "description": "只要EGO亮着就会放\n\n冒绿光的那种不放,分辨不出谁能放谁放不了",
+            "label": "Auto Cast EGO",
+            "description": "Casts whenever EGO is ready.\n\nGreen glowing ones are skipped as ready status cannot be distinguished.",
             "type": "switch",
             "default_case": "Yes",
             "cases": [

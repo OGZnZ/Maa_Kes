@@ -1,5 +1,5 @@
 {
-    //都是双击
+    // All of these are double taps
     "卡厄思-通用-点击进入存档点关卡": {
         "recognition": {
             "type": "TemplateMatch",
@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "准备进入存档点关卡"
+            "Node.Recognition.Succeeded": "Preparing to enter the checkpoint stage"
         },
         "action": {
             "type": "Click",
@@ -50,7 +50,7 @@
             }
         },
         "next": [
-            // "卡厄思-通用-已进入装备获取界面",
+            // "Chaos - General - Entered Equipment Acquisition Screen",
             "卡厄思-通用-存档点-已进入装备获取界面",
             "[JumpBack]卡厄思-通用-存档点-点击获取装备",
             "卡厄思-通用-已进入选路界面",

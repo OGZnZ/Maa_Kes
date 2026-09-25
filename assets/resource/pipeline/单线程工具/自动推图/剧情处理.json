@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "过剧情ing"
+            "Node.Recognition.Succeeded": "Playing through the story..."
         },
         "next": [
             "工具-自动推图-点击跳过按钮"
@@ -37,7 +37,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "听故事ing"
+            "Node.Recognition.Succeeded": "Listening to the story..."
         },
         "action": {
             "type": "Click",
@@ -184,7 +184,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "通过一关剧情!🎉"
+            "Node.Recognition.Succeeded": "Cleared one story stage!🎉"
         },
         "action": {
             "type": "Click",

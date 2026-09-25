@@ -2,14 +2,14 @@
     "task": [
         {
             "name": "工具-梦讯红点清除",
-            "label": "梦讯红点清除",
+            "label": "Clear Message Notifications",
             "icon": "./resource/image/单线程工具/手机消息/图标.png",
             "default_check": false,
             "group": [
                 "工具"
             ],
             "entry": "工具-读消息-任务开始层",
-            "description": "会自己过掉好感度剧情",
+            "description": "Automatically advances through affection story dialogues",
             "option": [
                 "工具-梦讯红点清除-加速对话过程"
             ]
@@ -17,8 +17,8 @@
     ],
     "option": {
         "工具-梦讯红点清除-加速对话过程": {
-            "label": "加速对话过程",
-            "description": "开启后会通过点击空白处加速对话过程",
+            "label": "Speed Up Dialogue",
+            "description": "When enabled, taps empty space to accelerate dialogue",
             "type": "switch",
             "default_case": "No",
             "cases": [

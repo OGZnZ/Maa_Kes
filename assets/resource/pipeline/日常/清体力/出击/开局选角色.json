@@ -92,7 +92,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "筛选条件已清理完毕"
+            "Node.Recognition.Succeeded": "Filter conditions cleared"
         },
         "next": [
             "出击-选角-已选中-前锋",
@@ -200,7 +200,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "已找到所选角色"
+            "Node.Recognition.Succeeded": "Selected character found"
         },
         "action": "Click",
         "next": [
@@ -253,7 +253,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "所选角色选择成功"
+            "Node.Recognition.Succeeded": "Selected character chosen successfully"
         },
         "next": [
             "出击-选中角色-验证体力是否充足-充足",
@@ -284,7 +284,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "体力充足,开始进行挑战"
+            "Node.Recognition.Succeeded": "Stamina sufficient, starting challenge"
         },
         "action": "Click",
         "next": [
@@ -318,7 +318,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前体力不足以进行挑战"
+            "Node.Recognition.Succeeded": "Current stamina insufficient for challenge"
         },
         "next": [
             "已进入首页",

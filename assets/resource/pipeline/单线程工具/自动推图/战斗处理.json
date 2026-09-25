@@ -40,7 +40,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "未达到推荐等级,将无视后直接进入"
+            "Node.Recognition.Succeeded": "Below the recommended level; will ignore it and enter directly"
         },
         "action": {
             "type": "Click",
@@ -106,7 +106,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前准备挑战的关卡已满星"
+            "Node.Recognition.Succeeded": "The stage about to be challenged is already fully starred"
         },
         "action": {
             "type": "Click",
@@ -128,7 +128,7 @@
                 "threshold": 0.8,
                 "model": "battle.onnx",
                 "expected": [
-                    0, //怪物_0
+                    0, // monster_0
                     1,
                     2,
                     3,
@@ -139,7 +139,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "⚔️已进入战斗关卡,将检查战斗状态,可自动战斗时不会通知免得太吵"
+            "Node.Recognition.Succeeded": "⚔️Entered the battle stage; will check the battle status. No notification when auto-battle is available, to avoid spam"
         },
         "next": [
             "工具-自动推图-战斗中_正在自动战斗",
@@ -192,12 +192,12 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "将自行启动自动战斗模式"
+            "Node.Recognition.Succeeded": "Will enable auto-battle mode"
         },
         "action": "Click",
         "post_delay": 1500
     },
-    "工具-自动推图-战斗中-不可自动战斗": { //启动手动战斗模式
+    "工具-自动推图-战斗中-不可自动战斗": { // Start manual battle mode
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -213,7 +213,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前战斗无法自动战斗,将启动软件研发自动战斗"
+            "Node.Recognition.Succeeded": "This battle cannot auto-battle; will start the custom auto-battle instead"
         },
         "next": [
             "[JumpBack]通用战斗-检查怪物位置",

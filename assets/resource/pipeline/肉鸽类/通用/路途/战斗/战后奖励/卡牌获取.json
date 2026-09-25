@@ -16,7 +16,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "战利品 卡牌!"
+            "Node.Recognition.Succeeded": "Loot: cards!"
         },
         "action": {
             "type": "Click",

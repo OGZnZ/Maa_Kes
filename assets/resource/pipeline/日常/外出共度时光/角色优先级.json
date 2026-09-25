@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前角色精神已深度创伤,将前往疗愈中心恢复"
+            "Node.Recognition.Succeeded": "Current character is deeply traumatized, heading to the trauma center to recover"
         },
         "action": {
             "type": "Click",
@@ -33,7 +33,7 @@
             "[JumpBack]疗愈中心-它处弹窗-点击前往疗愈中心"
         ]
     },
-    //第一位
+    // first slot
     "日常-约会-角色优先级_1-引用层": {
         "max_hit": 1,
         "next": [
@@ -57,7 +57,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第一次切换地区尝试"
+            "Node.Recognition.Succeeded": "First attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -92,7 +92,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第二次切换地区尝试"
+            "Node.Recognition.Succeeded": "Second attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -127,7 +127,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第三次切换地区尝试"
+            "Node.Recognition.Succeeded": "Third attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -162,7 +162,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第四次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fourth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -197,7 +197,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第五次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fifth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -218,14 +218,14 @@
     },
     "日常-约会-角色优先级_1-五次都未找到对应角色": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试五次都未找到对应角色,将进行下一优先级的寻找"
+            "Node.Recognition.Succeeded": "Character not found after five attempts, moving to the next priority"
         },
         "next": [
             "日常-约会-已进入城内"
         ]
     },
     "日常-约会-角色优先级_1": {
-        //分流
+        // branch
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -291,7 +291,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "角色1为不可聊天状态,将对下一位进行寻找"
+            "Node.Recognition.Succeeded": "Character 1 is unavailable for chat, moving to the next one"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -321,7 +321,7 @@
         "pre_delay": 100,
         "post_delay": 1500
     },
-    //第二位
+    // second slot
     "日常-约会-角色优先级_2-引用层": {
         "max_hit": 1,
         "next": [
@@ -345,7 +345,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第一次切换地区尝试"
+            "Node.Recognition.Succeeded": "First attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -380,7 +380,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第二次切换地区尝试"
+            "Node.Recognition.Succeeded": "Second attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -415,7 +415,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第三次切换地区尝试"
+            "Node.Recognition.Succeeded": "Third attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -450,7 +450,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第四次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fourth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -485,7 +485,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第五次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fifth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -506,7 +506,7 @@
     },
     "日常-约会-角色优先级_2-五次都未找到对应角色": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试五次都未找到对应角色,将进行下一优先级的寻找"
+            "Node.Recognition.Succeeded": "Character not found after five attempts, moving to the next priority"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -578,7 +578,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "角色2为不可聊天状态,将对下一位进行寻找"
+            "Node.Recognition.Succeeded": "Character 2 is unavailable for chat, moving to the next one"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -608,7 +608,7 @@
         "pre_delay": 100,
         "post_delay": 1500
     },
-    //第三位
+    // third slot
     "日常-约会-角色优先级_3-引用层": {
         "max_hit": 1,
         "next": [
@@ -632,7 +632,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第一次切换地区尝试"
+            "Node.Recognition.Succeeded": "First attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -667,7 +667,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第二次切换地区尝试"
+            "Node.Recognition.Succeeded": "Second attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -702,7 +702,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第三次切换地区尝试"
+            "Node.Recognition.Succeeded": "Third attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -737,7 +737,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第四次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fourth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -772,7 +772,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第五次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fifth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -793,7 +793,7 @@
     },
     "日常-约会-角色优先级_3-五次都未找到对应角色": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试五次都未找到对应角色,将进行下一优先级的寻找"
+            "Node.Recognition.Succeeded": "Character not found after five attempts, moving to the next priority"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -865,7 +865,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "角色3为不可聊天状态,将对下一位进行寻找"
+            "Node.Recognition.Succeeded": "Character 3 is unavailable for chat, moving to the next one"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -895,7 +895,7 @@
         "pre_delay": 100,
         "post_delay": 1500
     },
-    //第四位
+    // fourth slot
     "日常-约会-角色优先级_4-引用层": {
         "max_hit": 1,
         "next": [
@@ -919,7 +919,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第一次切换地区尝试"
+            "Node.Recognition.Succeeded": "First attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -954,7 +954,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第二次切换地区尝试"
+            "Node.Recognition.Succeeded": "Second attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -989,7 +989,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第三次切换地区尝试"
+            "Node.Recognition.Succeeded": "Third attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1024,7 +1024,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第四次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fourth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1059,7 +1059,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第五次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fifth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1080,7 +1080,7 @@
     },
     "日常-约会-角色优先级_4-五次都未找到对应角色": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试五次都未找到对应角色,将进行下一优先级的寻找"
+            "Node.Recognition.Succeeded": "Character not found after five attempts, moving to the next priority"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -1152,7 +1152,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "角色4为不可聊天状态,将对下一位进行寻找"
+            "Node.Recognition.Succeeded": "Character 4 is unavailable for chat, moving to the next one"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -1182,7 +1182,7 @@
         "pre_delay": 100,
         "post_delay": 1500
     },
-    //第五位
+    // fifth slot
     "日常-约会-角色优先级_5-引用层": {
         "max_hit": 1,
         "next": [
@@ -1206,7 +1206,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第一次切换地区尝试"
+            "Node.Recognition.Succeeded": "First attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1241,7 +1241,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第二次切换地区尝试"
+            "Node.Recognition.Succeeded": "Second attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1276,7 +1276,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第三次切换地区尝试"
+            "Node.Recognition.Succeeded": "Third attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1311,7 +1311,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第四次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fourth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1346,7 +1346,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "第五次切换地区尝试"
+            "Node.Recognition.Succeeded": "Fifth attempt to switch areas"
         },
         "action": {
             "type": "Click",
@@ -1367,7 +1367,7 @@
     },
     "日常-约会-角色优先级_5-五次都未找到对应角色": {
         "focus": {
-            "Node.Recognition.Succeeded": "尝试五次都未找到对应角色,将进行下一优先级的寻找"
+            "Node.Recognition.Succeeded": "Character not found after five attempts, moving to the next priority"
         },
         "next": [
             "日常-约会-已进入城内"
@@ -1402,7 +1402,7 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": "日常-约会-角色优先级_5",
-                //选随便时放弃偏移
+                // skip the offset when "any" is selected
                 "roi_offset": [
                     -55,
                     -50,
@@ -1440,7 +1440,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "角色5为不可聊天状态,将对下一位进行寻找"
+            "Node.Recognition.Succeeded": "Character 5 is unavailable for chat, moving to the next one"
         },
         "next": [
             "日常-约会-已进入城内"

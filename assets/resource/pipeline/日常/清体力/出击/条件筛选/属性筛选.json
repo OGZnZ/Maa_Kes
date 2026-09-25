@@ -1,5 +1,5 @@
 {
-    "出击-选角-属性筛选-寻找对应属性位置": { //根据用户选的属性，属性名称寻找属性位置
+    "出击-选角-属性筛选-寻找对应属性位置": { // Find the attribute position from the user-selected attribute name
         "recognition": {
             "type": "TemplateMatch",
             "param": {

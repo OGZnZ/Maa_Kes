@@ -156,7 +156,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "✉️邮箱内无可领取奖励~"
+            "Node.Recognition.Succeeded": "✉️No rewards to claim in the mailbox~"
         },
         "action": {
             "type": "Click",

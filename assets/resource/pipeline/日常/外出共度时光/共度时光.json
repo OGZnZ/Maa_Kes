@@ -39,7 +39,7 @@
         ]
     },
     "日常-约会-点击进入所选地区": {
-        //分流
+        // branch
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -97,7 +97,7 @@
     },
     "日常-约会-所有角色约会完毕": {
         "focus": {
-            "Node.Recognition.Succeeded": "所选角色已共度时光完毕"
+            "Node.Recognition.Succeeded": "Selected characters have finished spending time together"
         },
         "next": [
             "已进入首页",
@@ -336,7 +336,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "默契度提升了❤️"
+            "Node.Recognition.Succeeded": "Chemistry increased❤️"
         },
         "action": {
             "type": "Click",
@@ -469,7 +469,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "今日旅行卷消耗殆尽"
+            "Node.Recognition.Succeeded": "Today's travel tickets are exhausted"
         },
         "next": [
             "已进入首页",

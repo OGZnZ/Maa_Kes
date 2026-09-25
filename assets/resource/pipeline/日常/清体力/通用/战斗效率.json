@@ -29,7 +29,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前体力不足以完成所选效率"
+            "Node.Recognition.Succeeded": "Current stamina insufficient for the selected efficiency"
         },
         "next": [
             "清体力-当前体力能够完成所选效率",
@@ -97,11 +97,11 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前战斗效率足以花完所有体力"
+            "Node.Recognition.Succeeded": "Current battle efficiency is enough to spend all stamina"
         },
         "post_delay": 800
     },
-    "清体力-体力小于20已耗尽": { //都这个位置了还不够"清体力-当前体力能够完成所选效率"那不就是体力不足嘛
+    "清体力-体力小于20已耗尽": { // If it still doesn't match "Stamina - Current stamina sufficient for selected efficiency" at this point, then stamina is just insufficient
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -117,7 +117,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前所持有体力已耗尽"
+            "Node.Recognition.Succeeded": "Current stamina exhausted"
         },
         "next": [
             "已进入首页-结束任务",
@@ -204,7 +204,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "当前所持有体力已耗尽"
+            "Node.Recognition.Succeeded": "Current stamina exhausted"
         },
         "next": [
             "已进入首页-结束任务",
