@@ -7,8 +7,8 @@
     "welcome": "Veronica reporting for duty!",
     "icon": "./resource/image/logo.png",
     "github": "https://github.com/OGZnZ/Maa_Kes",
-    "version": "2.0.0",
-    "title": "NIG-Kes v2.0.0",
+    "version": "2.0.1",
+    "title": "NIG-Kes v2.0.1",
     "controller": [
         {
             "name": "Android",
