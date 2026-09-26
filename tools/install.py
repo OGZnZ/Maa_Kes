@@ -143,6 +143,8 @@ def install_chores():
         working_dir / "LICENSE",
         install_path,
     )
+    if (install_path / "MFAAvalonia.exe").exists():
+        shutil.copy2(install_path / "MFAAvalonia.exe", install_path / "NIG-Kes.exe")
 
 
 def install_agent():
