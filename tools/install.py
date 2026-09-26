@@ -126,6 +126,9 @@ def install_resource():
         interface = jsonc.load(f)
 
     interface["version"] = version
+    for entry in interface.get("resource", []):
+        if isinstance(entry, dict) and "hash" in entry:
+            del entry["hash"]
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
@@ -156,23 +159,9 @@ if __name__ == "__main__":
     install_chores()
     install_agent()
 
-    # Generate resource.hash on the current build platform (cross-platform byte/newline diffs may cause hash mismatches).
-    # hash is an optional field in interface.json, not required for packaging: if calculation fails (e.g. no maa
-    # or its native dependencies in container), warn and skip, do not fail entire package build.
-    # Windows CI default console is often cp1252, reconfigure stdout to UTF-8 before printing.
     try:
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     except Exception:
         pass
-
-    try:
-        sys.path.insert(0, str(Path(__file__).resolve().parent / "ci"))
-        from gen_resource_hash import apply_resource_hashes
-
-        comment = apply_resource_hashes(install_path / "interface.json", root=install_path)
-    except Exception as error:
-        print(f"⚠️ Skipping resource.hash generation ({type(error).__name__}: {error}); this artifact will not include hash verification")
-    else:
-        print(comment)
 
     print(f"Install to {install_path} successfully.")
