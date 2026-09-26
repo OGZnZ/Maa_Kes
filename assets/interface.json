@@ -6,8 +6,9 @@
     "license": "MIT",
     "welcome": "Veronica reporting for duty!",
     "icon": "./resource/image/logo.png",
-    "github": "https://github.com/miaojiuqing/Maa_KES",
-    "version": "1.0.0",
+    "github": "https://github.com/OGZnZ/Maa_Kes",
+    "version": "2.0.0",
+    "title": "NIG-Kes v2.0.0",
     "controller": [
         {
             "name": "Android",
@@ -30,12 +31,14 @@
     "resource": [
         {
             "name": "Simplified Chinese",
+            "label": "Simplified Chinese",
             "path": [
                 "./resource"
             ]
         },
         {
             "name": "Traditional Chinese",
+            "label": "Traditional Chinese",
             "path": [
                 "./resource",
                 "./resource_TC"
@@ -52,39 +55,45 @@
     "task": [],
     "group": [
         {
-            "name": "日常",
+            "name": "Daily",
             "label": "Daily"
         },
         {
-            "name": "工具",
+            "name": "Standalone Tools",
             "label": "Standalone Tools"
         }
     ],
+    "preset": [
+        {
+            "name": "Preset 1",
+            "label": "Preset 1"
+        }
+    ],
     "import": [
-        "tasks/进入游戏.json",
+        "tasks/LaunchGame.json",
         // Daily
-        "tasks/日常/喝咖啡.json",
-        "tasks/日常/疗愈中心.json",
-        "tasks/日常/政策审阅.json",
-        "tasks/日常/约会.json",
-        "tasks/日常/模拟处清体力.json",
-        "tasks/日常/出击.json",
-        "tasks/日常/奖励领取.json",
+        "tasks/Daily/CoffeeBreak.json",
+        "tasks/Daily/HealingCenter.json",
+        "tasks/Daily/ReviewPolicies.json",
+        "tasks/Daily/SpendTimeTogether.json",
+        "tasks/Daily/Simulation.json",
+        "tasks/Daily/Sortie.json",
+        "tasks/Daily/ClaimRewards.json",
         // Roguelike
-        "tasks/肉鸽/卡厄思推图.json",
-        "tasks/肉鸽/卡厄思刷开局.json",
+        "tasks/Roguelike/ChaosProgression.json",
+        "tasks/Roguelike/ChaosReroll.json",
         // Standalone tools
-        "tasks/工具/自动推图.json",
-        "tasks/工具/剧情跳过.json",
-        "tasks/工具/读消息.json",
-        "tasks/工具/教学红点清除.json",
-        "tasks/工具/交互辅助.json",
-        "tasks/工具/自动战斗.json",
+        "tasks/Tools/AutoProgression.json",
+        "tasks/Tools/StorySkip.json",
+        "tasks/Tools/ReadMessages.json",
+        "tasks/Tools/ClearRedDots.json",
+        "tasks/Tools/InteractiveHelper.json",
+        "tasks/Tools/AutoBattle.json",
         // Close
-        "tasks/关闭游戏.json"
+        "tasks/CloseGame.json"
     ],
     "option": {
-        "没做完别看了": {
+        "WIP": {
             "label": "Unfinished, to be improved",
             "cases": []
         }

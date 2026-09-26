@@ -1,0 +1,48 @@
+{
+    "task": [
+        {
+            "name": "自动剧情",
+            "label": "Auto Skip Story",
+            "default_check": false,
+            "group": [
+                "Standalone Tools"
+            ],
+            "entry": "工具-剧情跳过-任务开始层",
+            "description": "This only taps story Skip and the skip confirmation; do not run it together with Auto-Explore\n\nTasks in the list run in sequence, not in parallel",
+            "option": [
+                "工具-剧情跳过-自行确认不再显示"
+            ]
+        }
+    ],
+    "option": {
+        "工具-剧情跳过-自行确认不再显示": {
+            "label": "Auto-check \"Don't show again\"",
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "工具-剧情跳过-跳过确认": {
+                            "enabled": false,
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": [
+                                        677,
+                                        436,
+                                        330,
+                                        36
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

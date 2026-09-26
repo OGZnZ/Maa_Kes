@@ -1,0 +1,73 @@
+{
+    "task": [
+        {
+            "name": "自动推图",
+            "label": "Auto Progression",
+            "default_check": false,
+            "group": [
+                "Standalone Tools"
+            ],
+            "entry": "工具-自动推图-任务开始层",
+            "description": "Must be started on this screen:<br/>![Start Screen](./resource/base/image/icon/task_description/auto_stage.png)<br/>Cannot automate Chaos (Roguelike) modes.",
+            "option": [
+                "工具-自动推图-自行确认不再显示",
+                "工具-自动推图-可直接下一关时直接点击下一关"
+            ]
+        }
+    ],
+    "option": {
+        "工具-自动推图-自行确认不再显示": {
+            "label": "Auto-confirm 'Do not show again'",
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "工具-自动推图-跳过确认": {
+                            "enabled": false,
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": [
+                                        677,
+                                        436,
+                                        330,
+                                        36
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "工具-自动推图-可直接下一关时直接点击下一关": {
+            "label": "Advance Directly to Next Stage When Available",
+            "type": "switch",
+            "default_case": "No",
+            "description": "Speed increases when enabled, but side branches might be missed",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "工具-自动推图-关卡已结束-可直接下一关": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "工具-自动推图-关卡已结束-可直接下一关": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
