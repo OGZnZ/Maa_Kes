@@ -235,7 +235,6 @@
             "label": "Starting Character",
             "type": "select",
             "cases": [
-                //Passion
                 {
                     "name": "出击-角色选择-维罗妮卡",
                     "label": "Veronica",
@@ -321,7 +320,6 @@
                         }
                     }
                 },
-                //Justice
                 {
                     "name": "出击-角色选择-米卡",
                     "label": "Mika",
@@ -373,7 +371,6 @@
                         }
                     }
                 },
-                //Order
                 {
                     "name": "出击-角色选择-九",
                     "label": "Nine",
@@ -408,7 +405,6 @@
                         }
                     }
                 },
-                //Instinct
                 {
                     "name": "出击-角色选择-尼娅",
                     "label": "Nia",
@@ -460,7 +456,6 @@
                         }
                     }
                 },
-                //Void
                 {
                     "name": "出击-角色选择-凛",
                     "label": "Rin",

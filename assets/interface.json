@@ -13,18 +13,18 @@
         {
             "name": "Android",
             "type": "Adb",
-            "display_short_side": 720 // Default short-side length of the scaled resolution
+            "display_short_side": 720
         },
         {
             "name": "Desktop",
             "type": "Win32",
-            "description": "Must run as administrator!!! Otherwise the game window cannot be connected",
+            "description": "Must run as administrator! Otherwise the game window cannot be connected",
             "win32": {
                 "class_regex": "GLFW30",
                 "window_regex": "卡厄思梦境|卡厄思夢境|Chaos Zero Nightmare|カオゼロ",
-                "screencap": "PrintWindow", // Screenshot method
-                "mouse": "PostMessageWithCursorPos", // Mouse control method
-                "keyboard": "PostMessageWithCursorPos" // Keyboard control method
+                "screencap": "PrintWindow",
+                "mouse": "PostMessageWithCursorPos",
+                "keyboard": "PostMessageWithCursorPos"
             }
         }
     ],
@@ -45,13 +45,6 @@
             ]
         }
     ],
-    // Optional agent example
-    // "agent": {
-    //     "child_exec": "python",
-    //     "child_args": [
-    //         "./agent/main.py"
-    //     ]
-    // },
     "task": [],
     "group": [
         {
@@ -71,7 +64,6 @@
     ],
     "import": [
         "tasks/LaunchGame.json",
-        // Daily
         "tasks/Daily/CoffeeBreak.json",
         "tasks/Daily/HealingCenter.json",
         "tasks/Daily/ReviewPolicies.json",
@@ -79,17 +71,14 @@
         "tasks/Daily/Simulation.json",
         "tasks/Daily/Sortie.json",
         "tasks/Daily/ClaimRewards.json",
-        // Roguelike
         "tasks/Roguelike/ChaosProgression.json",
         "tasks/Roguelike/ChaosReroll.json",
-        // Standalone tools
         "tasks/Tools/AutoProgression.json",
         "tasks/Tools/StorySkip.json",
         "tasks/Tools/ReadMessages.json",
         "tasks/Tools/ClearRedDots.json",
         "tasks/Tools/InteractiveHelper.json",
         "tasks/Tools/AutoBattle.json",
-        // Close
         "tasks/CloseGame.json"
     ],
     "option": {

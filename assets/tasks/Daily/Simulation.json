@@ -138,7 +138,7 @@
                         "通用-点击返回": {
                             "post_delay": 1000
                         },
-                        "日常-清体力-再战体力检查-足以再战": { //Tap confirm directly
+                        "日常-清体力-再战体力检查-足以再战": {
                             "target": [
                                 1012,
                                 642,
@@ -338,7 +338,6 @@
                         }
                     }
                 },
-                // Requires scrolling
                 {
                     "name": "日常-清体力-主战员刷取选择-奥义师",
                     "label": "Arcanist",
@@ -424,7 +423,6 @@
                         }
                     }
                 },
-                // Requires scrolling
                 {
                     "name": "日常-清体力-辅战员刷取选择-奥义师",
                     "label": "Arcanist",
@@ -510,7 +508,6 @@
                         }
                     }
                 },
-                // Requires scrolling
                 {
                     "name": "日常-清体力-潜能刷取选择-正义",
                     "label": "Justice",
@@ -605,7 +602,6 @@
                         }
                     }
                 },
-                // Scrolling required from here down
                 {
                     "name": "日常-清体力-记忆碎片刷取选择-循环与命运",
                     "label": "Cycle and Destiny",
@@ -677,7 +673,6 @@
                     "name": "日常-清体力-挑战刷取选择-哀嚎的浪子",
                     "label": "The Wailing Prodigal",
                     "icon": "./resource/image/图标/养成材料/周本掉落/哀嚎的浪子之瞳.png",
-                    // description: Eye of the Wailing Prodigal icon
                     "pipeline_override": {
                         "清体力-挑战-刷取选择接口": {
                             "template": [
@@ -690,7 +685,6 @@
                     "name": "日常-清体力-挑战刷取选择-直面恐惧",
                     "label": "Face the Fear",
                     "icon": "./resource/image/图标/养成材料/周本掉落/谴责碎片.png",
-                    // description: Fragment of Condemnation icon
                     "pipeline_override": {
                         "清体力-挑战-刷取选择接口": {
                             "template": [
