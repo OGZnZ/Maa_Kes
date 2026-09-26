@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "日常-政策审阅",
+            "name": "Review Policies",
             "label": "📝Review Policies",
             "default_check": true,
             "option": [

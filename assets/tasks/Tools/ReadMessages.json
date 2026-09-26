@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "工具-梦讯红点清除",
+            "name": "Clear Message Notifications",
             "label": "Clear Message Notifications",
             "icon": "./resource/image/单线程工具/手机消息/图标.png",
             "default_check": false,

@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "教学处自动清理红点",
+            "name": "Clear Academy Red Dots",
             "label": "Clear Academy Red Dots",
             "default_check": false,
             "group": [

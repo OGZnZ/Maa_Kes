@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "清体力",
+            "name": "Simulation (Stamina)",
             "label": "Simulation",
             "icon": "./resource/image/图标/任务图标/模拟.png",
             "default_check": true,

@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "肉鸽-刷开局",
+            "name": "Chaos Reroll",
             "label": "Chaos Reroll",
             "default_check": false,
             "group": [

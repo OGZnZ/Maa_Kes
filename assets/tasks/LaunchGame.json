@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "进入游戏",
+            "name": "Launch Game",
             "label": "🎮Launch Game",
             "default_check": true,
             "group": [

@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "出击",
+            "name": "Sortie",
             "label": "Sortie",
             "icon": "./resource/image/图标/任务图标/出击.png",
             "entry": "出击-任务开始层",

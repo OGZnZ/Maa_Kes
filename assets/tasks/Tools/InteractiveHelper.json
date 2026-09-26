@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "交互辅助",
+            "name": "Interactive Helper",
             "label": "Interactive Helper",
             "default_check": false,
             "group": [

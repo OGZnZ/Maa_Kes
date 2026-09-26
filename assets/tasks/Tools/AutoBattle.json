@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "自动战斗",
+            "name": "Auto Battle",
             "label": "⚔️Auto Battle",
             "default_check": false,
             "group": [

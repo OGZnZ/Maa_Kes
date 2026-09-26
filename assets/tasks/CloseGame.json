@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "关闭游戏",
+            "name": "Close Game",
             "label": "🎮Close Game",
             "default_check": true,
             "group": [

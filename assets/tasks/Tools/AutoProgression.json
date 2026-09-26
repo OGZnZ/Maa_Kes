@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "自动推图",
+            "name": "Auto Progression",
             "label": "Auto Progression",
             "default_check": false,
             "group": [

@@ -1,7 +1,7 @@
 {
     "task": [
         {
-            "name": "自动剧情",
+            "name": "Auto Skip Story",
             "label": "Auto Skip Story",
             "default_check": false,
             "group": [
